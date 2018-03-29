@@ -96,12 +96,19 @@ class UsersController extends Controller
     public function update(UpdateUser $request, $id)
     {
         $user = User::find($id);
+
+        if($request->password === null){
+            $password = $user->password;
+        }else{
+            $password = Hash::make($request->password);
+        }
+
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->is_admin = $request->is_admin;
+        $user->password = $password;
         $user->user_type = $request->user_type;
-        //$user->password = Hash::make($request->password);
-        //$user->status = 2;
         $user->update();
         return response()->json(['success' => true]);
     }
@@ -114,6 +121,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return response()->json(['success' => true]);
     }
 }

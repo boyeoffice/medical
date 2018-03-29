@@ -39,7 +39,8 @@ import DataViewer from './DataViewer'
 			{label: 'Full Name'},
 			{label: 'Email'},
 			{label: 'User Type'},
-			{label: 'Created'}
+			{label: 'Created'},
+			{label: 'Action'}
 			],
 			source: '/md-vs2/manage/users',
 			params: {

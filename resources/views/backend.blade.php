@@ -27,5 +27,6 @@
 	<div id="app"></div>
 	<script src="{{asset('js/backend.js')}}"></script>
 	<script src="{{asset('js/app.min.js')}}"></script>
+	<script>NProgress.configure({ minimum : 0.4 })</script>
 </body>
 </html>

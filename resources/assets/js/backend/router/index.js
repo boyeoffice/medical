@@ -19,8 +19,8 @@ const router = new VueRouter({
 		    	component: ParentLayout,
 		    	children: [
 		    	{path: '/', component: require('../views/users')},
-		    	{path: 'create', component: require('../views/users/form')},
-		    	{path: 'edit/:id', component: require('../views/users/form'), meta: {mode: 'edit'}}
+		    	{path: 'create', component: require('../views/users/form.vue')},
+		    	{path: ':id/edit', component: require('../views/users/form.vue'), meta: {mode: 'edit'}}
 		    	]
 		    },
 		    {
