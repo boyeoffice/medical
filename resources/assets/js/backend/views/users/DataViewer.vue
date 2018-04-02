@@ -3,8 +3,13 @@
 		<td>{{data.username}}</td>
 		<td>{{data.name}}</td>
 		<td>{{data.email}}</td>
+		<td>
+			<span v-if="data.status === '3'"> <button class="btn btn-danger btn-sm">Blocked</button> </span>
+			<span v-if="data.status === '1'"> <button class="btn btn-warning btn-sm">Pending</button> </span>
+			<span v-if="data.status === '2'"> <button class="btn btn-success btn-sm">Active</button> </span>
+		</td>
 		<td style="text-transform: capitalize;">{{data.user_type}}</td>
-		<td>{{data.created_at}}</td>
+		<td>{{data.created_at | moment("Do MMMM YYYY")}}</td>
 		<td>
 			<router-link :to="'/backend/manage/users/' + data.id" class="btn btn-info btn-sm" title="View user">
 				<i class="fa fa-eye"></i>

@@ -33,6 +33,9 @@ Route::group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => [
 Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware' => ['auth', 'admin']], function(){
 	Route::resource('users', 'UsersController');
 	Route::get('all-users', 'UsersController@getUsers');
+	Route::put('update-profile', 'ProfileController@updateProfile');
+	Route::get('setting', 'IndexController@setting');
+	Route::put('setting', 'IndexController@updateSetting');
 	Route::resource('consult', 'ConsultController');
 	Route::post('query-single', 'QueryController@storeQuerySingle');
 	Route::get('query-single', 'QueryController@getSingleQuery');

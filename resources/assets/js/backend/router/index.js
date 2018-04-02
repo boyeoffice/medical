@@ -49,6 +49,20 @@ const router = new VueRouter({
 		    	{path: 'query_techniques', component: require('../views/suggestions/querytechniques')},
 		    	{path: 'specialty', component: require('../views/suggestions/specialty')}
 		    	]
+		    },
+		    {
+		    	path: 'settings',
+		    	component: ParentLayout,
+		    	children: [
+		    	{path: '/', component: require('../views/settings/form.vue')}
+		    	]
+		    },
+		    {
+		    	path: 'profile',
+		    	component: ParentLayout,
+		    	children: [
+		    	{path: '/', component: require('../views/profile/index.vue')}
+		    	]
 		    }
 		]
 	}

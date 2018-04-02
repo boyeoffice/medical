@@ -46,6 +46,7 @@ export default {
 				this.$router.push('/backend/manage/users')
 			    }).catch(err => {
 				this.isSending = false
+				toastr.warning('An error occurred')
 				this.errors = err.response.data
 			  })
 			 }

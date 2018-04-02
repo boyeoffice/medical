@@ -7,7 +7,7 @@
 				</div>
 				<div class="pull-left info">
 				<p>{{currentUser.name}}</p>
-				<a href=""><i class="fa fa-user- text-success"> Profile</i></a>
+				<router-link to="/backend/profile"><i class="fa fa-user text-success"> Profile</i></router-link>
 				<a href="javascript:void(0)" @click.stop="logout"><i class="fa fa-power-off text-warning"> Logout</i></a>
 			   </div>
 			</div>
@@ -91,6 +91,10 @@
 						</router-link>
 					</ul>
 				</li>
+				<router-link to="/backend/settings" tag="li">
+					<a><i class="fa  fa-gears"></i>
+						<span>Settings</span></a>
+				</router-link>
 			</ul>
 		</section>
 	</aside>

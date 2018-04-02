@@ -54,7 +54,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->user_type = $request->user_type;
         $user->password = Hash::make($request->password);
-        $user->status = 2;
+        $user->status = $request->status;
         $user->save();
 
         $profile = new Profile();
@@ -93,8 +93,13 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUser $request, $id)
+    public function update(Request $request, $id)
     {
+        $update_id = $request->id;
+        $this->validate($request,[
+            'email' => 'required|email|unique:users,email,'.$update_id,
+            'username' => 'required|string|min:3|max:100|unique:users,username,'.$update_id,
+    ]);
         $user = User::find($id);
 
         if($request->password === null){
@@ -109,6 +114,7 @@ class UsersController extends Controller
         $user->is_admin = $request->is_admin;
         $user->password = $password;
         $user->user_type = $request->user_type;
+        $user->status = $request->status;
         $user->update();
         return response()->json(['success' => true]);
     }
