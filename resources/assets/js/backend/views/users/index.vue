@@ -1,94 +1,62 @@
 <template>
 	<section class="content">
-	   <div class="row">
-		<div class="col-md-12">
-			<div class="box box-default">
-				<div class="box-header with-border">
-					<h2 class="box-title">Users</h2>
-					<div class="box-tools pull-right">
-						<router-link to="/backend/manage/users/create" class="btn btn-success btn-sm">Create</router-link>
-					</div>
-				</div>
-					<div class="box-body">
-						<table class="table table-striped table-hover">
-							<thead>
-								<tr><th v-for="th in thead">
-									{{th.label}}
-								</th></tr>
-							</thead>
-							<tbody>
-								<data-viewer v-for="data in model.data" :data="data" :key="data.id"></data-viewer>
-							</tbody>
-						</table>
-				</div>
+		<div class="row">
+			<div class="col-md-12">
+				<box-table :source="source" :create="create" :title="title" :thead="thead" :filter="filter">
+					<template slot-scope="props">
+					<tr>
+						<td>{{props.item.username}}</td>
+						<td>{{props.item.name}}</td>
+						<td>{{props.item.email}}</td>
+						<td>
+							<span v-if="props.item.status === '3'" class="label label-danger">Blocked </span>
+							<span v-if="props.item.status === '1'" class="label label-warning">Pending</span>
+							<span v-if="props.item.status === '2'" class="label label-success">Active </span>
+						</td>
+					<td style="text-transform: capitalize;">{{props.item.user_type}}</td>
+					<td>{{props.item.created_at | moment("Do MMMM YYYY")}}</td>
+					<td>
+						<router-link :to="'/backend/manage/users/' + props.item.id" class="btn btn-info btn-sm" title="View user">
+							<i class="fa fa-eye"></i>
+						</router-link>
+						<router-link :to="'/backend/manage/users/' + props.item.id + '/edit'" class="btn btn-primary btn-sm" title="Edit user">
+							<i class="fa fa-edit"></i>
+						</router-link>
+					</td>
+					</tr>
+					</template>
+				</box-table>
 			</div>
 		</div>
-	 </div>
 	</section>
 </template>
 
 <script>
-import DataViewer from './DataViewer'
+	import BoxTable from '../vendor/BoxTable.vue'
 	export default {
-		components: {DataViewer},
+		components: {BoxTable},
 		data(){
 			return{
-			model: {data: []},
-			thead: [
-			{label: 'Username'},
-			{label: 'Full Name'},
-			{label: 'Email'},
-			{label: 'User Type'},
-			{label: 'Created'},
-			{label: 'Action'}
-			],
-			source: '/md-vs2/manage/users',
-			params: {
-                    column: 'id',
-                    direction: 'desc',
-                    per_page: 10,
-                    page: 1,
-                    search_column: 'id',
-                    search_operator: 'equal_to',
-                    search_query_1: '',
-                    search_query_2: ''
-		        }
-		    }
-	     },
-	     mounted(){
-			this.fetchData()
+				source: '/md-vs2/manage/users',
+				create: '/backend/manage/users/create',
+				title: 'Users',
+				thead: [
+					{label: 'Username', key: 'username', sort: true},
+					{label: 'Full Name', key: 'name', sort: true},
+					{label: 'Email', key: 'email', sort: true},
+					{label: 'Status', key: 'status', sort: false},
+					{label: 'User Type', key: 'user_type', sort: true},
+					{label: 'Created', key: 'created_at', sort: true},
+					{label: 'Action', kye: 'action', sort: false}
+					],
+					filter: [
+					   'username', 'name','email', 'created_at', 'user_type'
+					]
+			}
+		},
+		mounted(){
 			document.title = 'Manage Users'
 			this.$store.commit('title_top_data', 'Manage Users')
-		},
-		methods: {
-			  next() {
-                if(this.model.next_page_url) {
-                    this.params.page++
-                    this.fetchData()
-                }
-            },
-            prev() {
-                if(this.model.prev_page_url) {
-                    this.params.page--
-                    this.fetchData()
-                }
-            },
-			fetchData(){
-				var vm = this
-				Nprogress.start()
-                axios.get(this.buildURL())
-                    .then(function(response) {
-                        Vue.set(vm.$data, 'model', response.data.model)
-                        Nprogress.done()
-                    })
-                    .catch(function(error) {
-                        console.log(error)
-                    })
-			},
-			buildURL() {
-                var p = this.params
-                return `${this.source}?column=${p.column}&direction=${p.direction}&per_page=${p.per_page}&page=${p.page}`
-            }
 		}
 	}
 </script>

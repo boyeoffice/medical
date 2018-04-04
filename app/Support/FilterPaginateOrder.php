@@ -27,10 +27,10 @@ trait FilterPaginateOrder {
             'column' => 'required|in:'.implode(',', $this->filter),
             'direction' => 'required|in:asc,desc',
             'per_page' => 'required|integer|min:1',
-            //'search_operator' => 'required|in:'.implode(',', array_keys($this->operators)),
-            //'search_column' => 'required|in:'.implode(',', $this->filter),
-            //'search_query_1' => 'max:255',
-            //'search_query_2' => 'max:255'
+            'search_operator' => 'required|in:'.implode(',', array_keys($this->operators)),
+            'search_column' => 'required|in:'.implode(',', $this->filter),
+            'search_query_1' => 'max:255',
+            'search_query_2' => 'max:255'
         ]);
 
         if($v->fails()) {

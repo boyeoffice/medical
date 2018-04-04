@@ -16,10 +16,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'username', 'email', 'is_admin', 'status', 'user_type', 'password',
+        'id', 'name', 'username', 'email', 'is_admin', 'status', 'user_type', 'password', 'created_at'
     ];
-
-    protected $filter = ['id'];
+ // whitelist of filter-able columns
+    protected $filter = ['id', 'username', 'name', 'email', 'user_type', 'created_at'];
 
     /**
      * The attributes that should be hidden for arrays.

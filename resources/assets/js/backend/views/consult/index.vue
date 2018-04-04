@@ -2,36 +2,50 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="box box-primary">
-					<div class="box-header with-boder">
-						<h2 class="box-title">Consultant</h2>
-						<div class="box-tools">
-							<router-link class="btn btn-sm btn-success" to="/backend/consults/create">Create</router-link>
-						</div>
-					</div>
-					<div class="box-body">
-						<div class="table-responsive">
-						<table class="table table-striped table-hover">
-							<thead>
-								<tr>
-									<th v-for="th in thead">{{th.label}}</th>
-								</tr>
-							</thead>
-						</table>
-					</div>
-					</div>
-				</div>
+				<data-viewer :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
+					<template slot-scope="props">
+						<tr>
+							<td>{{props.item.id}}</td>
+							<td>{{props.item.user.name}}</td>
+							<td>{{props.item.iniciais_paciente}}</td>
+							<td>{{props.item.primeira_consulta}}</td>
+							<td>{{props.item.sexo}}</td>
+							<td>{{props.item.idade}}</td>
+							<td>{{props.item.origem}}</td>
+							<td>{{props.item.especialidade_origem}}</td>
+							<td>{{props.item.destino}}</td>
+							<td>{{props.item.grupo_ICD_10}}</td>
+							<td>{{props.item.ICD_10_primario}}</td>
+							<td>{{props.item.ICD_10_secundario}}</td>
+							<td>{{props.item.ICD_10_secundario_II}}</td>
+							<td>{{props.item.ICD_10_secundario_III}}</td>
+							<td>{{props.item.ICD_10_secundario_IV}}</td>
+							<td>{{props.item.ICD_10_secundario_V}}</td>
+							<td>{{props.item.obito}}</td>
+							<td>{{props.item.ICD_10_obito}}</td>
+							<td>{{props.item.alta_destino}}</td>
+							<td>{{props.item.alta_especialidade}}</td>
+						</tr>
+					</template>
+				</data-viewer>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import DataViewer from '../vendor/BoxTableRes.vue'
 	export default{
+		components: {DataViewer},
 		data(){
 			return{
+				BoxClass: 'box box-primary',
+				create: '/backend/consults/create',
+				title: 'Consulta mi',
+				source: '/md-vs2/manage/consult',
 				thead: [
 				{label: 'ID'},
+				{label: 'Names of Patient'},
 				{label: 'Iniciais Paciente'},
 				{label: 'Primeira Consulta'},
 				{label: 'Sexo'},
@@ -45,7 +59,6 @@
 				{label: 'ICD-10 Secundário II'},
 				{label: 'ICD-10 Secundário III'},
 				{label: 'ICD-10 Secundário IV'},
-				{label: 'ICD-10 Secundário V'},
 				{label: 'ICD-10 Secundário V'},
 				{label: 'Óbito'},
 				{label: 'ICD-10 Óbito'},

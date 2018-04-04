@@ -29,6 +29,10 @@ import VueSuggestions from '../vendor/suggestions'
 				modelSingle4: [],
 				modelSingle5: [],
 				modelSingle6: [],
+				modelSingle7: [],
+				modelDestino: [],
+				modelAltaDestino: [],
+				modelAltaSpec: [],
 				isLoading: {
 					dest: false,
 					name: false,
@@ -38,8 +42,12 @@ import VueSuggestions from '../vendor/suggestions'
 					single4: false,
 					single5: false,
 					single6:false,
+					single7: false,
 					group: false,
-					spec: false
+					spec: false,
+					destino: false,
+					alta: false,
+					alta_spec: false
 					}
 			}
 		},
@@ -49,6 +57,7 @@ import VueSuggestions from '../vendor/suggestions'
 		},
 		methods: {
 			save(){
+				this.form.user_id = this.users[0].id
 				axios[this.method](this.store, this.form).then(res => {
 					console.log(res.data)
 				}).catch(err => {
@@ -113,11 +122,32 @@ import VueSuggestions from '../vendor/suggestions'
 					this.isLoading.single6 = false
 				})
 			},
+			fetchSingle7(){
+		  	this.isLoading.single7 = true
+				axios.get('/md-vs2/manage/search-query-single?search=' + this.form.ICD_10_primario).then(res => {
+					Vue.set(this.$data, 'modelSingle7', res.data)
+					this.isLoading.single7 = false
+				})
+			},
 			fetchDest(){
 				this.isLoading.dest = true
 				axios.get('/md-vs2/manage/searchdestination?search=' + this.form.origem).then(res => {
 					Vue.set(this.$data, 'modelDest', res.data)
 					this.isLoading.dest = false
+				})
+			},
+			fetchDestino(){
+				this.isLoading.destino = true
+				axios.get('/md-vs2/manage/searchdestination?search=' + this.form.destino).then(res => {
+					Vue.set(this.$data, 'modelDestino', res.data)
+					this.isLoading.destino = false
+				})
+			},
+			altaDestino(){
+				this.isLoading.alta = true
+				axios.get('/md-vs2/manage/searchdestination?search=' + this.form.alta_destino).then(res => {
+					Vue.set(this.$data, 'modelAltaDestino', res.data)
+					this.isLoading.alta = false
 				})
 			},
 			fetchTech(){
@@ -131,6 +161,13 @@ import VueSuggestions from '../vendor/suggestions'
 				axios.get('/md-vs2/manage/searchspecialty?search=' + this.form.especialidade_origem).then(res => {
 					Vue.set(this.$data, 'modelSpec', res.data)
 					this.isLoading.spec = false
+				})
+			},
+			fetchAltaSpec(){
+				this.isLoading.alta_spec = true
+				axios.get('/md-vs2/manage/searchspecialty?search=' + this.form.alta_especialidade).then(res => {
+					Vue.set(this.$data, 'modelAltaSpec', res.data)
+					this.isLoading.alta_spec = false
 				})
 			},
 			clearForm(){

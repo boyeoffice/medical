@@ -54,25 +54,25 @@
 						</div>
 						<div class="form-group">
 							<label>Especialidade Origem</label>
-							<vue-suggestions :suggestions="modelSpec" :loading="isLoading.dest" @input="fetchSpec" v-model="form.especialidade_origem"></vue-suggestions>
+							<vue-suggestions :suggestions="modelSpec" :loading="isLoading.spec" @input="fetchSpec" v-model="form.especialidade_origem"></vue-suggestions>
 						</div>
 					</div>
 					<!-- ./col -->
 					<div class="col-sm-4">
 						<div class="form-group">
 							<label>Destino</label>
-							<input type="text" class="form-control" v-model="form.destino">
+							<vue-suggestions :suggestions="modelDestino" :loading="isLoading.destino" @input="fetchDestino" v-model="form.destino"></vue-suggestions>
 						</div>
 						<div class="form-group">
 							<label>Grupo ICD-10</label>
-							<vue-suggestions :suggestions="modelGroup" :loading="isLoading.group" @input="fetchGroup" v-model="form.ICD_10_secundario_II"></vue-suggestions>
+							<vue-suggestions :suggestions="modelGroup" :loading="isLoading.group" @input="fetchGroup" v-model="form.grupo_ICD_10"></vue-suggestions>
 						</div>
 					</div>
 					<!-- ./col -->
 					<div class="col-sm-4">
 						<div class="form-group">
 							<label>ICD-10 Primário</label>
-							<input type="text" class="form-control" v-model="form.ICD_10_primario">
+							<vue-suggestions :suggestions="modelSingle7" :loading="isLoading.single7" @input="fetchSingle7" v-model="form.ICD_10_primario"></vue-suggestions>
 						</div>
 						<div class="form-group">
 							<label>ICD-10 Secundário</label>
@@ -109,25 +109,21 @@
 						</div>
 						<div class="form-group">
 							<label>Alta Destino</label>
-							<input type="text" class="form-control" v-model="form.alta_destion">
+							<vue-suggestions :suggestions="modelAltaDestino" :loading="isLoading.alta" @input="altaDestino" v-model="form.alta_destino"></vue-suggestions>
 						</div>
 					</div>
 					<!-- ./col -->
 					<div class="col-sm-4">
 						<div class="form-group">
-							<label>Alta Destino</label>
-							<input type="text" class="form-control" v-model="form.alta_destion">
-						</div>
-						<div class="form-group">
 							<label>Alta Especialidade</label>
-							<input type="text" class="form-control" v-model="form.alta_especialidade">
+							<vue-suggestions :suggestions="modelAltaSpec" :loading="isLoading.alta_spec" @input="fetchAltaSpec" v-model="form.alta_especialidade"></vue-suggestions>
 						</div>
 					</div>
 					<!-- ./col -->
 					</div>
 					<router-link to="/backend/consults" class="btn btn-default">Cancel</router-link>
 					<a href="javascript:void(0)" @click="clearForm" class="btn btn-danger">Empty</a>
-					<button class="btn btn-primary">Submit</button>
+					<button class="btn btn-primary">Save</button>
 				</form>
 			</div>
 		</div>

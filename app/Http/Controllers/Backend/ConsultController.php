@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateConsult;
+use App\Consult;
 
 class ConsultController extends Controller
 {
@@ -14,7 +16,8 @@ class ConsultController extends Controller
      */
     public function index()
     {
-        //
+        $consult = Consult::filterPaginateOrder();
+        return response()->json(['model' => $consult]);
     }
 
     /**
@@ -33,9 +36,10 @@ class ConsultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateConsult $request)
     {
-        //
+        $consult = Consult::create($request->all());
+        return response()->json(['saved' => true]);
     }
 
     /**
