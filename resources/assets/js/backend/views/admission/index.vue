@@ -7,7 +7,9 @@
 						<tr>
 							<td class="col-md-2">{{props.item.id}}</td>
 							<td width="100px">{{props.item.iniciais_paciente}}</td>
-							<td>{{props.item.primeira_consulta}}</td>
+							<td>{{props.item.data_entrada | moment('Do MMMM YYYY')}}</td>
+							<td>{{props.item.data_saída | moment('Do MMMM YYYY')}}</td>
+							<td>{{props.item.dias_internamento}}</td>
 							<td>{{props.item.sexo}}</td>
 							<td>{{props.item.idade}}</td>
 							<td>{{props.item.origem}}</td>
@@ -25,7 +27,7 @@
 							<td>{{props.item.alta_destino}}</td>
 							<td>{{props.item.alta_especialidade}}</td>
 							<td>
-								<router-link :to="'/backend/consults/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
+								<router-link :to="'/backend/admission/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
 							</td>
 						</tr>
 					</template>
@@ -42,13 +44,15 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 		data(){
 			return{
 				BoxClass: 'box box-primary',
-				create: '/backend/consults/create',
-				title: 'Consultas',
-				source: '/md-vs2/manage/consult',
+				create: '/backend/admission/create',
+				title: 'Admissão',
+				source: '/md-vs2/manage/admission',
 				thead: [
 				{label: 'ID'},
 				{label: 'Iniciais Paciente'},
-				{label: 'Primeira Consulta'},
+				{label: 'Data Entrada'},
+				{label: 'Data Saída'},
+				{label: 'Dias Internamento'},
 				{label: 'Sexo'},
 				{label: 'Idade'},
 				{label: 'Origem'},
@@ -70,7 +74,8 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 			}
 		},
 		mounted(){
-			this.$store.commit('title_top_data', 'Consultas')
+			this.$store.commit('title_top_data', 'Admissão')
+			document.title = 'Admissão'
 		}
 	}
 </script>

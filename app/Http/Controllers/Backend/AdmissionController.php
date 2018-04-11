@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateConsult;
-use App\Http\Requests\UpdateConsult;
-use App\Consult;
+use App\Admission;
+use App\Http\Requests\CreateAdmission;
+use App\Http\Requests\UpdateAdmission;
 
-class ConsultController extends Controller
+class AdmissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ConsultController extends Controller
      */
     public function index()
     {
-        $consult = Consult::filterPaginateOrder();
-        return response()->json(['model' => $consult]);
+        $admission = Admission::filterPaginateOrder();
+        return response()->json(['model' => $admission]);
     }
 
     /**
@@ -37,9 +37,10 @@ class ConsultController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateConsult $request)
+    public function store(CreateAdmission $request)
     {
-        $consult = Consult::create($request->all());
+        $admission = $request->all();
+        Admission::create($admission);
         return response()->json(['saved' => true]);
     }
 
@@ -62,8 +63,8 @@ class ConsultController extends Controller
      */
     public function edit($id)
     {
-        $consult = Consult::find($id);
-        return response()->json($consult);
+        $admission = Admission::find($id);
+        return response()->json($admission);
     }
 
     /**
@@ -73,11 +74,12 @@ class ConsultController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateConsult $request, $id)
+    public function update(UpdateAdmission $request, $id)
     {
-        $consult = Consult::find($id);
-        $consult->update($request->all());
+        $admission = Admission::find($id);
+        $admission->update($request->all());
         return response()->json(['success' => true]);
+
     }
 
     /**
@@ -88,8 +90,8 @@ class ConsultController extends Controller
      */
     public function destroy($id)
     {
-        $consult = Consult::find($id);
-        $consult->delete();
+        $admission = Admission::find($id);
+        $admission->delete();
         return response()->json(['deleted' => true]);
     }
 }

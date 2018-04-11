@@ -53,7 +53,8 @@
                 </tbody>
 			</table>
 		</div>
-		 <div class="box-footer pagination-footer">
+		 <div class="box-footer">
+            <div class="pagination-footer">
             <div class="pagination-item">
                 <span>Per page: </span>
                 <select v-model="params.per_page" @change="fetchData">
@@ -76,6 +77,7 @@
                 <button @click="next" class="btn btn-default btn-sm">Next</button>
             </div>
         </div>
+    </div>
 	</div>
 </template>
 

@@ -36,16 +36,16 @@
 				</li>
 				<router-link to="/backend/consults" tag="li">
 					<a><i class="fa fa-plus-square"></i>
-						<span>Consults</span></a>
+						<span>Consultas</span></a>
 				</router-link>
-				<router-link to="/backend/adminssion" tag="li">
+				<router-link to="/backend/admission" tag="li">
 					<a><i class="fa  fa-plus-circle"></i>
-						<span>Adminssion</span></a>
+						<span>Admissão</span></a>
 				</router-link>
 				<li class="treeview">
 					<a href="javascript:void(0)">
 						<i class="fa fa-database"></i>
-						<span>Manage Suggestions </span>
+						<span>Gestão de Campos </span>
 						<span class="pull-right-container">
 							<i class="fa fa-angle-left pull-right"></i>
 						</span>
@@ -54,7 +54,7 @@
 						<router-link to="/backend/suggestions/icd10_group" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
-								Icd10group
+								Grupos ICD 10
 							</a>
 						</router-link>
 					</ul>
@@ -62,7 +62,7 @@
 						<router-link to="/backend/suggestions/icd10_single" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
-								Icd10single
+								ICD 10
 							</a>
 						</router-link>
 					</ul>
@@ -70,7 +70,7 @@
 						<router-link to="/backend/suggestions/origin_destination" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
-								Origin Destination
+								Origem/Destino
 							</a>
 						</router-link>
 					</ul>
@@ -78,7 +78,7 @@
 						<router-link to="/backend/suggestions/query_techniques" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
-								Query Techniques
+								Técnicas
 							</a>
 						</router-link>
 					</ul>
@@ -86,7 +86,7 @@
 						<router-link to="/backend/suggestions/specialty" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
-								Query Specialty
+								Especialidade
 							</a>
 						</router-link>
 					</ul>

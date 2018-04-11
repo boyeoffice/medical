@@ -1,7 +1,8 @@
 import VueInput from '../vendor/VueSuggestion'
 import VueSuggestions from '../vendor/suggestions'
+import Datepicker from 'vuejs-datepicker'
 	export default{
-		components: {VueInput, VueSuggestions},
+		components: {VueInput, VueSuggestions, Datepicker},
 		data(){
 			return{
 				isDelete: false,
@@ -16,9 +17,9 @@ import VueSuggestions from '../vendor/suggestions'
 					ICD_10_obito: '',
 					especialidade_origem: ''
 				},
-				store: '/md-vs2/manage/consult',
+				store: '/md-vs2/manage/admission',
 				method: 'post',
-				initialize: '/md-vs2/manage/consult',
+				initialize: '/md-vs2/manage/admission',
 				//users: [],
 				selectedName: '',
 				modelGroup: [],
@@ -54,11 +55,11 @@ import VueSuggestions from '../vendor/suggestions'
 			}
 		},
 		beforeMount(){
-			document.title = 'Consultas'
-			this.$store.commit('title_top_data', 'Consultas')
+			document.title = 'Admissão'
+			this.$store.commit('title_top_data', 'Admissão')
 			if(this.$route.meta.mode === 'edit'){
-				this.initialize = '/md-vs2/manage/consult/' + this.$route.params.id + '/edit'
-				this.store = '/md-vs2/manage/consult/' + this.$route.params.id
+				this.initialize = '/md-vs2/manage/admission/' + this.$route.params.id + '/edit'
+				this.store = '/md-vs2/manage/admission/' + this.$route.params.id
 				this.method = 'patch'
 				this.isDelete = true
 				this.fetchData()
@@ -68,7 +69,7 @@ import VueSuggestions from '../vendor/suggestions'
 			save(){
 				this.isSending = true
 				axios[this.method](this.store, this.form).then(res => {
-					this.$router.push('/backend/consults')
+					this.$router.push('/backend/admission')
 					this.isSending = false
 					console.log(res.data)
 				}).catch(err => {
@@ -79,8 +80,10 @@ import VueSuggestions from '../vendor/suggestions'
 				})
 			},
 			fetchData(){
+				Nprogress.start()
 				axios.get(this.initialize).then(res => {
 					this.form = res.data
+					Nprogress.done()
 				})
 			},
 			deleteForm(){
@@ -197,6 +200,15 @@ import VueSuggestions from '../vendor/suggestions'
 			},
 			clearForm(){
 				this.form = {}
+			}
+		},
+		computed: {
+			daysInHospital() {  
+				var oneDay = 24*60*60*1000
+				var dateIn = this.form.data_entrada
+				var dateOut = this.form.data_saída
+				var diffDays = Math.round(Math.abs((dateOut - dateIn)/(oneDay)))
+				return this.form.dias_internamento = diffDays || this.form.dias_internamento
 			}
 		}
 	}

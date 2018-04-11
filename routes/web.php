@@ -37,6 +37,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::get('setting', 'IndexController@setting');
 	Route::put('setting', 'IndexController@updateSetting');
 	Route::resource('consult', 'ConsultController');
+	Route::resource('admission', 'AdmissionController');
 	Route::post('query-single', 'QueryController@storeQuerySingle');
 	Route::get('query-single', 'QueryController@getSingleQuery');
 	Route::get('search-query-single', 'QueryController@searchSingleQuery');

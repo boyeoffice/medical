@@ -32,10 +32,10 @@
                 </div>
 			</div>
             <div class="table-responsive">
-			<table class="table table-striped">
+			<table class="table table-bordered dataTable">
 				<thead>
                     <tr>
-                        <th v-for="item in thead">
+                        <th v-for="item in thead" tabindex="0">
                             <div class="dataviewer-th" @click="sort(item.key)" v-if="item.sort">
                                 <span>{{item.label}}</span>
                                 <span v-if="params.column === item.key">
@@ -55,7 +55,8 @@
 			</table>
         </div>
 		</div>
-		 <div class="box-footer pagination-footer">
+		 <div class="box-footer">
+          <div class="pagination-footer">
             <div class="pagination-item">
                 <span>Per page: </span>
                 <select v-model="params.per_page" @change="fetchData">
@@ -78,6 +79,7 @@
                 <button @click="next" class="btn btn-default btn-sm">Next</button>
             </div>
         </div>
+    </div>
 	</div>
 </template>
 

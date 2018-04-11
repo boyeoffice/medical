@@ -27,7 +27,7 @@
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Query Specialty</th>
+									<th>Especialidade</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,8 +59,8 @@
 			}
 		},
 		mounted(){
-			document.title = 'Manage Suggestion'
-			this.$store.commit('title_top_data', 'Manage Suggestion')
+			document.title = 'Especialidade'
+			this.$store.commit('title_top_data', 'Especialidade')
 			this.fetchData()
 		},
 		methods: {

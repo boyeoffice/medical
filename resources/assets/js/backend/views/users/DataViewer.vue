@@ -11,9 +11,6 @@
 		<td style="text-transform: capitalize;">{{data.user_type}}</td>
 		<td>{{data.created_at | moment("Do MMMM YYYY")}}</td>
 		<td>
-			<router-link :to="'/backend/manage/users/' + data.id" class="btn btn-info btn-sm" title="View user">
-				<i class="fa fa-eye"></i>
-			</router-link>
 			<router-link :to="'/backend/manage/users/' + data.id + '/edit'" class="btn btn-primary btn-sm" title="Edit user">
 				<i class="fa fa-edit"></i>
 			</router-link>

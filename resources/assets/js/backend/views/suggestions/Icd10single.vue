@@ -27,7 +27,7 @@
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Name</th>
+									<th>ICD 10</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -60,8 +60,8 @@
 		},
 		mounted(){
 			this.fetchData()
-			document.title = 'Manage Suggestion'
-			this.$store.commit('title_top_data', 'Manage Suggestion')
+			document.title = 'ICD 10'
+			this.$store.commit('title_top_data', 'ICD 10')
 		},
 		methods: {
 			save(){

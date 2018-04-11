@@ -27,7 +27,7 @@
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Query Origin Destination</th>
+									<th>Origem/Destino</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,8 +59,8 @@
 			}
 		},
 		mounted(){
-			document.title = 'Manage Suggestion'
-			this.$store.commit('title_top_data', 'Manage Suggestion')
+			document.title = 'Origem/Destino'
+			this.$store.commit('title_top_data', 'Origem/Destino')
 			this.fetchData()
 		},
 		methods: {

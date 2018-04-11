@@ -3,7 +3,7 @@
 		<navbar></navbar>
 		<sidebar></sidebar>
 		<div class="content-wrapper">
-			<section class="content-header"><h1>{{title}} <small>Control panel</small></h1></section>
+			<section class="content-header"><h1>{{title}}</h1></section>
 			<router-view></router-view>
 		</div>
 		<main-footer></main-footer>

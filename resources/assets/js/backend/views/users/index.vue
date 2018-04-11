@@ -16,9 +16,6 @@
 					<td style="text-transform: capitalize;">{{props.item.user_type}}</td>
 					<td>{{props.item.created_at | moment("Do MMMM YYYY")}}</td>
 					<td>
-						<router-link :to="'/backend/manage/users/' + props.item.id" class="btn btn-info btn-sm" title="View user">
-							<i class="fa fa-eye"></i>
-						</router-link>
 						<router-link :to="'/backend/manage/users/' + props.item.id + '/edit'" class="btn btn-primary btn-sm" title="Edit user">
 							<i class="fa fa-edit"></i>
 						</router-link>

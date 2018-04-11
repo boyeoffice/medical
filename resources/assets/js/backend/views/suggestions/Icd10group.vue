@@ -27,7 +27,7 @@
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Name</th>
+									<th>Grupos ICD 10</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,8 +59,8 @@
 			}
 		},
 		mounted(){
-			document.title = 'Manage Suggestion'
-			this.$store.commit('title_top_data', 'Manage Suggestion')
+			document.title = 'Grupos ICD 10'
+			this.$store.commit('title_top_data', 'Grupos ICD 10')
 			this.fetchData()
 		},
 		methods: {

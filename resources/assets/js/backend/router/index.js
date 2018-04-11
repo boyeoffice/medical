@@ -28,15 +28,17 @@ const router = new VueRouter({
 		    	component: ParentLayout,
 		    	children: [
 		    	{path: '/', component: require('../views/consult')},
-		    	{path: 'create', component: require('../views/consult/form.vue')}
+		    	{path: 'create', component: require('../views/consult/form.vue')},
+		    	{path: ':id/edit', component: require('../views/consult/form.vue'), meta: {mode: 'edit'}}
 		    	]
 		    },
 		    {
-		    	path: 'adminssion',
+		    	path: 'admission',
 		    	component: ParentLayout,
 		    	children: [
-		    	{path: '/', component: require('../views/adminssion')},
-		    	{path: 'create', component: require('../views/adminssion/form')}
+		    	{path: '/', component: require('../views/admission')},
+		    	{path: 'create', component: require('../views/admission/form.vue')},
+		    	{path: ':id/edit', component: require('../views/admission/form.vue'), meta: {mode: 'edit'}}
 		    	]
 		    },
 		    {

@@ -12,11 +12,20 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
-							<label>Primeira Consulta</label>
-							<select class="form-control" v-model="form.primeira_consulta">
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-							</select>
+								<label>Data Entrada</label>
+								<datepicker :bootstrapStyling="true" v-model="form.data_entrada" :calendarButton="true" calendarButtonIcon="fa fa-calendar" :required="true"></datepicker>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label>Data Saída</label>
+								<datepicker :bootstrapStyling="true" v-model="form.data_saída" :calendarButton="true" calendarButtonIcon="fa fa-calendar" :required="true"></datepicker>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<label>Dias Internamento</label>
+								<input type="text" class="form-control" v-model="daysInHospital">
 							</div>
 						</div>
 						<div class="col-sm-4">
@@ -122,7 +131,7 @@
 						</div>
 						</div>
 					</div>
-					<router-link to="/backend/consults" class="btn btn-default">Cancel</router-link>
+					<router-link to="/backend/admission" class="btn btn-default">Cancel</router-link>
 					<a href="javascript:void(0)" @click="deleteForm" v-show="isDelete" class="btn btn-danger">Delete</a>
 					<a href="javascript:void(0)" @click="clearForm" v-show="! isDelete" class="btn btn-danger">Empty</a>
 					<button class="btn btn-primary" v-show="! isSending">Save</button>
