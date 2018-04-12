@@ -65,6 +65,13 @@ const router = new VueRouter({
 		    	children: [
 		    	{path: '/', component: require('../views/profile/index.vue')}
 		    	]
+		    },
+		    {
+		    	path: 'techniques',
+		    	component: ParentLayout,
+		    	children: [
+		    	{path: '/', component: require('../views/technique/index.vue')}
+		    	]
 		    }
 		]
 	}

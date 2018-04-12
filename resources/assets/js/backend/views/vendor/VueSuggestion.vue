@@ -23,16 +23,13 @@ export default {
   props: {
 
     value: {
-      type: String,
-      required: true
+      type: String
     },
     isFetching: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     suggestions: {
-      type: Array,
-      required: true
+      type: Array
     }
 
   },

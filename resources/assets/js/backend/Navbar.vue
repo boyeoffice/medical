@@ -1,48 +1,24 @@
 <template>
 	<header class="main-header">
-		<router-link class="logo" to="/">
+		<router-link class="logo" to="/backend">
 			<span class="logo-mini">
-				<b>A</b>LT
+				<b>H</b>AT
 			</span>
 			<span class="logo-lg">
-				<b>Admin</b>LTE
+				<b>{{settings.site_name}}</b>
 			</span>
 		</router-link>	
 		<nav class="navbar navbar-static-top">
-			<a href="javascript:void(0)" data-toggle="offcanvas" role="button">
+			<a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
 				<span class="sr-only">Toggle Navigation</span>
 			</a>
 			<div class="navbar-custom-menu">
 				<ul class="nav navbar-nav">
-					<li class="dropdown message-menu">
-						<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-envelope-o"></i>
-							<span class="label label-success">0</span>
-						</a>
-					</li>
-					<li class="dropdown notifications-menu">
-						<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-bell-o"></i>
-							<span class="label label-warning">0</span>
-						</a>
-					</li>
-					<li class="dropdown tasks-menu">
-						<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa fa-flag-o"></i>
-							<span class="label label-danger">0</span>
-						</a>
-					</li>
-					<li class="dropdown user user-menu">
-						<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-							<img v-bind:src="userImage" alt="" class="user-image">
-							<span class="hidden-xs">{{currentUser.name}}</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)" data-toggle="control-sidebar">
-							<i class="fa fa-gears"></i>
-						</a>
-					</li>
+					<router-link to="/backend/profile" class="dropdown user user-menu" tag="li">
+						<a><img v-bind:src="userImage" alt="" class="user-image">
+						<span class="hidden-xs">{{currentUser.name}}</span></a>
+					</router-link>
+					<router-link tag="li" to="/backend/settings"><a><i class="fa fa-gears"></i></a></router-link>
 				</ul>
 			</div>
 		</nav>
@@ -57,6 +33,9 @@
 			},
 			userImage(){
 				return this.$store.state.url + this.$store.state.auth_user.avatar
+			},
+			settings(){
+				return this.$store.state.settings
 			}
 		}
 	}

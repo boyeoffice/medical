@@ -94,6 +94,13 @@ class QueryController extends Controller
         $model = DB::select('select * from query_techniques');
         return response()->json($model);
     }
+    public function searchTech(Request $request)
+    {
+        $input = $request->search;
+        $model = DB::table('query_techniques')->where('name', 'LIKE', '%'.$input.'%')->take(5)->get();
+        return response()->json($model);
+    }
+
      public function postSpecialty(Request $request)
     {
         $this->validate($request, [

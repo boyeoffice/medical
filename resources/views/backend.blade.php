@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/nprogress.css')}}">
-	<link rel="stylesheet" href="{{asset('css/toastr.css')}}">
-	<link rel="stylesheet" href="{{asset('css/main.css')}}">
-	<link rel="stylesheet" href="{{asset('css/typehead.css')}}">
-	<title>Dashboard</title>
-	<script>
-		window.Laravel = {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!-- CSRF Token --><meta name="csrf-token" content="{{ csrf_token() }}"><link rel="apple-touch-icon" sizes="57x57" href="{{asset('icon/apple-icon-57x57.png')}}"><link rel="apple-touch-icon" sizes="60x60" href="{{asset('icon/apple-icon-60x60.png')}}"><link rel="apple-touch-icon" sizes="72x72" href="{{asset('icon/apple-icon-72x72.png')}}"><link rel="apple-touch-icon" sizes="76x76" href="{{asset('icon/apple-icon-76x76.png')}}"><link rel="apple-touch-icon" sizes="114x114" href="{{asset('icon/apple-icon-114x114.png')}}"><link rel="apple-touch-icon" sizes="120x120" href="{{asset('icon/apple-icon-120x120.png')}}"><link rel="apple-touch-icon" sizes="144x144" href="{{asset('icon/apple-icon-144x144.png')}}"><link rel="apple-touch-icon" sizes="152x152" href="{{asset('icon/apple-icon-152x152.png')}}"><link rel="apple-touch-icon" sizes="180x180" href="{{asset('icon/apple-icon-180x180.png')}}"><link rel="icon" type="image/png" sizes="192x192"  href="{{asset('icon/android-icon-192x192.png')}}"><link rel="icon" type="image/png" sizes="32x32" href="{{asset('icon/favicon-32x32.png')}}"><link rel="icon" type="image/png" sizes="96x96" href="{{asset('icon/favicon-96x96.png')}}"><link rel="icon" type="image/png" sizes="16x16" href="{{asset('icon/favicon-16x16.png')}}"><link rel="manifest" href="{{asset('icon/manifest.json')}}"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="{{asset('icon/ms-icon-144x144.png')}}"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"><link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}"><link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}"><link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}"><link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}"><link rel="stylesheet" href="{{asset('css/nprogress.css')}}"><link rel="stylesheet" href="{{asset('css/toastr.css')}}"><link rel="stylesheet" href="{{asset('css/main.css')}}"><link rel="stylesheet" href="{{asset('css/typehead.css')}}"><title>Dashboard</title><script> window.Laravel = {
             csrfToken: "{{ csrf_token() }}"
         }
-
         window.User = {!! Auth::user() !!}
         window.url = "{{url('/')}}"
-	</script>
-</head>
-<body class="skin-red sidebar-mini">
-	<div id="app"></div>
-	<script src="{{asset('js/backend.js')}}"></script>
-	<script src="{{asset('js/app.min.js')}}"></script>
-	<script>NProgress.configure({ minimum : 0.4 })</script>
+	</script></head><body class="skin-blue sidebar-mini"><div id="app"></div><script src="{{asset('js/backend.js')}}"></script><script src="{{asset('js/app.min.js')}}"></script><script>NProgress.configure({ minimum : 0.4 })</script>
 </body>
 </html>

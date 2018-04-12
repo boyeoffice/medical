@@ -20,6 +20,16 @@ import MainFooter from './Footer'
 			title(){
 				return this.$store.state.titleTop
 			}
+		},
+		beforeMount(){
+			this.fectchData()
+		},
+		methods: {
+			fectchData(){
+			axios.get('/md-vs2/manage/setting').then(res => {
+				this.$store.commit('settings_data', res.data)
+			})
+		}
 		}
 	}
 </script>

@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function ($guard = null) {
 	 if (Auth::guard($guard)->check()) {
             return redirect('/home');
@@ -38,6 +27,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::put('setting', 'IndexController@updateSetting');
 	Route::resource('consult', 'ConsultController');
 	Route::resource('admission', 'AdmissionController');
+	Route::get('tech', 'TechController@index');
+	Route::post('tech', 'TechController@store');
+	Route::delete('tech/{id}', 'TechController@destroy');
 	Route::post('query-single', 'QueryController@storeQuerySingle');
 	Route::get('query-single', 'QueryController@getSingleQuery');
 	Route::get('search-query-single', 'QueryController@searchSingleQuery');
@@ -52,4 +44,5 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::get('specialty', 'QueryController@getSpecialty');
 	Route::post('query-tech', 'QueryController@queryTech');
 	Route::get('query-tech', 'QueryController@getQueryTech');
+	Route::get('searchtech', 'QueryController@searchTech');
 });
