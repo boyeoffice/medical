@@ -6,19 +6,19 @@
 		<div class="col-sm-4">
 			<div class="form-group">
 				<label>Site Name</label>
-				<input type="text" class="form-control" v-model="form.site_name">
+				<input type="text" class="form-control" v-model="settings.site_name">
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="form-group">
 				<label>Site E-mail</label>
-				<input type="text" class="form-control" v-model="form.site_email">
+				<input type="text" class="form-control" v-model="settings.site_email">
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="form-group">
 				<label>Site Description</label>
-				<textarea class="form-control" rows="3" v-model="form.site_description"></textarea>
+				<textarea class="form-control" rows="3" v-model="settings.site_description"></textarea>
 			</div>
 		</div>
 

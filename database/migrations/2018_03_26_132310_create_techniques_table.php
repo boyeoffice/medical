@@ -15,10 +15,8 @@ class CreateTechniquesTable extends Migration
     {
         Schema::create('techniques', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tecnica _realizada')->nullable();
-            $table->string('estagio')->nullable();
-            $table->string('"frequência')->nullable();
-            $table->timestamp('data');
+            $table->text('tecnica_realizada')->nullable();
+            $table->text('estagio')->nullable();
             $table->timestamps();
         });
     }

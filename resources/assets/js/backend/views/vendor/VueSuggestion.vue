@@ -11,7 +11,7 @@
                 v-bind:class="{'active': isActive(index)}"
                 @click="suggestionClick(index)"
             >
-              <a href="javascript:void(0)">{{ suggestion.name }} <small>{{ suggestion.email }}</small></a>
+              <a href="javascript:void(0)">{{ suggestion.a }} <small>{{ suggestion.b }}</small></a>
             </li>
         </ul>
     </div>
@@ -46,7 +46,7 @@ export default {
     matches () {
       //return this.suggestions
      return this.suggestions.filter((obj) => {
-        return obj.name.toLowerCase().indexOf(this.value) >= 0
+        return obj.a.toLowerCase().indexOf(this.value) >= 0
      })
     },
 
@@ -69,7 +69,7 @@ export default {
 
     // When enter pressed on the input
     enter () {
-      this.$emit('input', this.matches[this.current].name)
+      this.$emit('input', this.matches[this.current].b)
       this.open = false
     },
 
@@ -94,7 +94,7 @@ export default {
 
     // When one of the suggestion is clicked
     suggestionClick (index) {
-      this.$emit('input', this.matches[index].name)
+      this.$emit('input', this.matches[index].b)
       this.open = false
     }
 

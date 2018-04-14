@@ -16,7 +16,6 @@ class CreateQuerySpecialtyTable extends Migration
         Schema::create('query_specialty', function (Blueprint $table) {
             $table->increments('id');
              $table->text('name');
-            $table->timestamps();
         });
     }
 

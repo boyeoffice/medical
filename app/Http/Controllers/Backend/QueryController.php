@@ -12,23 +12,24 @@ class QueryController extends Controller
     {
     	$this->validate($request, [
     		'items' => 'required|array|min:1',
-    		'items.*.name' => 'required'
+    		'items.*.a' => 'required',
+            'items.*.b' => 'required',
     	]);
     	 $items = [];
     	  foreach($request->items as $item) {
-    	  	$arrData = ['name' => $item['name']];
+    	  	$arrData = ['a' => $item['a'], 'b' => $item['b']];
     	  	DB::table('query_icd10_single')->insert($arrData);
     	  }
     }
     public function searchSingleQuery(Request $request)
     {
         $input = $request->search;
-        $model = DB::table('query_icd10_single')->where('name', 'LIKE', '%' .$input. '%')->take(5)->get();
+        $model = DB::table('query_icd10_single')->where('a', 'LIKE', '%' .$input. '%')->take(5)->get();
         return response()->json($model);
     }
-    public function getSingleQuery()
+    public function getSingleQuery(Request $request)
     {
-        $model = DB::select('select * from query_icd10_single');
+        $model = DB::table('query_icd10_single')->orderBy($request->column, $request->direction)->paginate($request->per_page);
         return response()->json($model);
     }
     public function storeQueryGroup(Request $request)

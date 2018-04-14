@@ -16,7 +16,6 @@ class CreateQueryOriginDestinationTable extends Migration
         Schema::create('query_origin_destination', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->timestamps();
         });
     }
 

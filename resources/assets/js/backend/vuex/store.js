@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
 		auth_user: window.User,
 		url: window.url,
 		titleTop: '',
-		settings: ''
+		settings: {},
+		stats: {}
 	},
 	mutations:{
 		title_top_data(state, title){
@@ -16,6 +17,9 @@ export const store = new Vuex.Store({
 		},
 		settings_data(state, data){
 			state.settings = data
+		},
+		stats_data(state, data){
+			state.stats = data
 		}
 	}
 })

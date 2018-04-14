@@ -16,7 +16,6 @@ class CreateQueryTechniquesTable extends Migration
         Schema::create('query_techniques', function (Blueprint $table) {
             $table->increments('id');
              $table->text('name');
-            $table->timestamps();
         });
     }
 

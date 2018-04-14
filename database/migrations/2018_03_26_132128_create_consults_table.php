@@ -15,26 +15,24 @@ class CreateConsultsTable extends Migration
     {
         Schema::create('consults', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('iniciais_paciente')->nullable();
-            $table->enum('primeira_consulta', ['yes', 'no'])->comment('Yes, No');
-            $table->enum('sexo', ['m','f'])->comment('Male, Female');
-            $table->string('idade')->nullable();
-            $table->string('origem')->nullable();
-            $table->string('especialidade_origem')->nullable();
-            $table->string('destino')->nullable();
-            $table->string('grupo_ICD_10')->nullable();
-            $table->string('ICD_10_primario')->nullable();
-            $table->string('ICD_10_secundario')->nullable();
-            $table->string('ICD_10_secundario_II')->nullable();
-            $table->string('ICD_10_secundario_III')->nullable();
-            $table->string('ICD_10_secundario_IV')->nullable();
-            $table->string('ICD_10_secundario_V')->nullable();
-            $table->enum('obito', ['yes', 'no'])->comment('Yes, No');
-            $table->string('ICD_10_obito')->nullable();
-            $table->string('alta_destino')->nullable();
-            $table->string('alta_especialidade')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('iniciais_paciente')->nullable();
+            $table->enum('primeira_consulta', ['Yes', 'No'])->comment('Yes, No');
+            $table->enum('sexo', ['M','F'])->comment('Male, Female');
+            $table->text('idade')->nullable();
+            $table->text('origem')->nullable();
+            $table->text('especialidade_origem')->nullable();
+            $table->text('destino')->nullable();
+            $table->text('grupo_ICD_10')->nullable();
+            $table->text('ICD_10_primario')->nullable();
+            $table->text('ICD_10_secundario')->nullable();
+            $table->text('ICD_10_secundario_II')->nullable();
+            $table->text('ICD_10_secundario_III')->nullable();
+            $table->text('ICD_10_secundario_IV')->nullable();
+            $table->text('ICD_10_secundario_V')->nullable();
+            $table->enum('obito', ['Yes', 'No'])->comment('Yes, No');
+            $table->text('ICD_10_obito')->nullable();
+            $table->text('alta_destino')->nullable();
+            $table->text('alta_especialidade')->nullable();
             $table->timestamps();
         });
     }
