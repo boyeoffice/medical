@@ -34,9 +34,22 @@ class IndexController extends Controller
     public function getStats()
     {
         $user = User::count();
-        $consult = Consult::count();
-        $admission = Admission::count();
         $tech = Technique::count();
-        return response()->json(['user' => $user, 'consult' => $consult, 'admission' => $admission, 'tech' => $tech]);
+
+        // Data Calculate
+        $consult = Consult::count();
+        $deathConsult = Consult::where('obito', 'Yes')->count();
+        $deathRateConsult = $deathConsult / $consult;
+
+        $admission = Admission::count();
+        $deathAdmission = Admission::where('obito', 'Yes')->count();
+        $deathRateAdmission = $deathAdmission / $admission;
+
+        //Means
+        $getDays = Admission::pluck('dias_internamento')->toArray();
+        $sumUp = array_sum($getDays);
+        $mean = $sumUp / $admission;
+
+        return response()->json(['user' => $user, 'consult' => $deathRateConsult, 'admission' => $deathRateAdmission, 'tech' => $mean]);
     }
 }

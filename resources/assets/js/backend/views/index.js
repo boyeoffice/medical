@@ -1,6 +1,7 @@
 import Box from './vendor/Box.vue'
+import PieChart from './lib/pie.js'
 export default {
-	components: {Box},
+	components: {Box, PieChart},
 	beforeMount(){
 		document.title = 'Dashboard'
 		this.$store.commit('title_top_data', 'Dashboard')
@@ -11,8 +12,8 @@ export default {
 			bgGreen: 'small-box bg-green',
 			bgYellow: 'small-box bg-yellow',
 			bgRed: 'small-box bg-red',
-			gTitle: 'Consultas',
-			rTitle: 'Admissão',
+			gTitle: 'Mortality Rate Consultas',
+			rTitle: 'Mortality Rate Admissão',
 			iTitle: 'Técnica',
 			userIcon: 'ion ion-ios7-people-outline',
 			admissionIcon: 'ion ion-ios7-medkit-outline',

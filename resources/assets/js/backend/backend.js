@@ -6,6 +6,11 @@ import Router from './router'
 import { store } from './vuex/store'
 Vue.use(require('vue-moment'))
 window.Nprogress = require('nprogress-npm')
+import 'chart.js'
+import 'hchs-vue-charts'
+
+Vue.use(window.VueCharts)
+
 
 window.toastr = require('toastr/build/toastr.min.js');
 window.innerHeight = 800;

@@ -7,10 +7,23 @@
 			<box :className="bgRed" :unit="stats.admission" :title="rTitle" :icon="admissionIcon"></box>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<div class="box box-default">
 					<div class="box-header with-border">
-						<h3 class="box-title">Graph</h3>
+						<h3 class="box-tool">Pie Chart Consults</h3>
+					</div>
+					<div class="box-body">
+						<pie-chart></pie-chart>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="box box-default">
+					<div class="box-header with-border">
+						<h3 class="box-tool">Pie Chart Admissão</h3>
+					</div>
+					<div class="box-body">
+						<pie-chart></pie-chart>
 					</div>
 				</div>
 			</div>

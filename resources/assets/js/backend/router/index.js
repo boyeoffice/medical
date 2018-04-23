@@ -13,7 +13,7 @@ const router = new VueRouter({
 		path: '/backend',
 		component: Dashboard,
 		children: [
-		    {path: '/', component: require('../views')},
+		    {path: '/', component: require('../views/index.vue')},
 		    {
 		    	path: 'manage/users',
 		    	component: ParentLayout,
