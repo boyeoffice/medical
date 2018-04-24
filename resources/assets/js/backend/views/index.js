@@ -1,7 +1,14 @@
 import Box from './vendor/Box.vue'
 import PieChart from './lib/pie.js'
+import BarChart from './lib/bar.js'
+import PieConsultmf from './lib/pie-consult-mf.js'
+import PieAdmissionmf from './lib/pie-admission-mf.js'
+import PieAdminOrigin from './lib/pie-admin-origin.js'
+import PieConsultOrigin from './lib/pie-consult-origin.js'
+
+
 export default {
-	components: {Box, PieChart},
+	components: {Box, PieChart, BarChart, PieConsultmf, PieAdmissionmf, PieAdminOrigin, PieConsultOrigin},
 	beforeMount(){
 		document.title = 'Dashboard'
 		this.$store.commit('title_top_data', 'Dashboard')

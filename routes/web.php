@@ -31,6 +31,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::post('tech', 'TechController@store');
 	Route::delete('tech/{id}', 'TechController@destroy');
 	Route::get('stats', 'IndexController@getStats');
+	Route::get('pie-chart/consult/m-f', 'IndexController@getPieChartConsultMF');
+	Route::get('pie-chart/admission/mf', 'IndexController@getPieChartAdmissiontMF');
+	Route::get('pie-chart/admission/origin', 'IndexController@getAdminOrigin');
+	Route::get('pie-chart/consult/origin', 'IndexController@getConsultOrigin');
 	Route::post('query-single', 'QueryController@storeQuerySingle');
 	Route::get('query-single', 'QueryController@getSingleQuery');
 	Route::get('search-query-single', 'QueryController@searchSingleQuery');

@@ -9,7 +9,11 @@ export const store = new Vuex.Store({
 		url: window.url,
 		titleTop: '',
 		settings: {},
-		stats: {}
+		stats: {},
+		pieConsultMF:[],
+		pieAdmissionMF: [],
+		pieAdminOrigin: [],
+		pieConsultOrign: []
 	},
 	mutations:{
 		title_top_data(state, title){
@@ -20,6 +24,18 @@ export const store = new Vuex.Store({
 		},
 		stats_data(state, data){
 			state.stats = data
+		},
+		pieConsultMF_data(state, data){
+			state.pieConsultMF = data
+		},
+		pieAdmissionMF_data(state, data){
+			state.pieAdmissionMF = data
+		},
+		pieAdminOrigin_data(state, data){
+			state.pieAdminOrigin = data
+		},
+		pieConsultOrigin_data(state, data){
+			state.pieConsultOrign = data
 		}
 	}
 })
