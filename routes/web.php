@@ -35,6 +35,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::get('pie-chart/admission/mf', 'IndexController@getPieChartAdmissiontMF');
 	Route::get('pie-chart/admission/origin', 'IndexController@getAdminOrigin');
 	Route::get('pie-chart/consult/origin', 'IndexController@getConsultOrigin');
+	Route::get('graph/admission/origin', 'IndexController@getGraphAdmission');
+	Route::get('graph/consult/origin', 'IndexController@getGraphConsult');
 	Route::post('query-single', 'QueryController@storeQuerySingle');
 	Route::get('query-single', 'QueryController@getSingleQuery');
 	Route::get('search-query-single', 'QueryController@searchSingleQuery');

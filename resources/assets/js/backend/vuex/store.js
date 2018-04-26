@@ -13,7 +13,9 @@ export const store = new Vuex.Store({
 		pieConsultMF:[],
 		pieAdmissionMF: [],
 		pieAdminOrigin: [],
-		pieConsultOrign: []
+		pieConsultOrigin: [],
+		graphAdmin: [],
+		graphConsult: []
 	},
 	mutations:{
 		title_top_data(state, title){
@@ -35,7 +37,13 @@ export const store = new Vuex.Store({
 			state.pieAdminOrigin = data
 		},
 		pieConsultOrigin_data(state, data){
-			state.pieConsultOrign = data
+			state.pieConsultOrigin = data
+		},
+		graphAdmin_data(state, data){
+			state.graphAdmin = data
+		},
+		graphConsult_data(state, data){
+			state.graphConsult = data
 		}
 	}
 })

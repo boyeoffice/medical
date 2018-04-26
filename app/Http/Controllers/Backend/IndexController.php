@@ -9,6 +9,7 @@ use App\User;
 use App\Consult;
 use App\Admission;
 use App\Technique;
+use DB;
 
 class IndexController extends Controller
 {
@@ -83,5 +84,21 @@ class IndexController extends Controller
         $UCIP = Consult::where('origem', 'UCIP')->count();
         $UCISU = Consult::where('origem', 'UCISU')->count();
         return response()->json([$Consulta_Externa, $Internamento, $UAVC, $UCIP, $UCISU]);
+    }
+    public function getGraphAdmission()
+    {
+        $admission = DB::table('admissions')
+                    ->select('idade', DB::raw('count(*) as total'))
+                    ->groupBy('idade')
+                    ->get();
+        return response()->json($admission);
+    }
+    public function getGraphConsult()
+    {
+        $consult = DB::table('consults')
+                    ->select('idade', DB::raw('count(*) as total'))
+                    ->groupBy('idade')
+                    ->get();
+        return response()->json($consult);
     }
 }

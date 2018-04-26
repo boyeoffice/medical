@@ -57,7 +57,7 @@
 						<h3 class="box-title">Bar Chart Consults</h3>
 					</div>
 					<div class="box-body">
-						<bar-chart></bar-chart>
+						<graph-consult></graph-consult>
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 						<h3 class="box-title">Bar Chart Admissão</h3>
 					</div>
 					<div class="box-body">
-						<bar-chart></bar-chart>
+						<graph-admin></graph-admin>
 					</div>
 				</div>
 			</div>

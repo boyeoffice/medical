@@ -5,10 +5,11 @@ import PieConsultmf from './lib/pie-consult-mf.js'
 import PieAdmissionmf from './lib/pie-admission-mf.js'
 import PieAdminOrigin from './lib/pie-admin-origin.js'
 import PieConsultOrigin from './lib/pie-consult-origin.js'
-
+import GraphAdmin from './lib/graph-admission.js'
+import GraphConsult from './lib/graph-consult.js'
 
 export default {
-	components: {Box, PieChart, BarChart, PieConsultmf, PieAdmissionmf, PieAdminOrigin, PieConsultOrigin},
+	components: {Box, PieChart, BarChart, PieConsultmf, PieAdmissionmf, PieAdminOrigin, PieConsultOrigin, GraphAdmin, GraphConsult},
 	beforeMount(){
 		document.title = 'Dashboard'
 		this.$store.commit('title_top_data', 'Dashboard')
