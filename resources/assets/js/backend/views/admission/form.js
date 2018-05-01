@@ -103,7 +103,7 @@ import Datepicker from 'vuejs-datepicker'
 			//},
 			fetchGroup(){
 				this.isLoading.group = true
-				axios.get('/md-vs2/manage/search-query-group?search=' + this.form.ICD_10_secundario_II).then(res => {
+				axios.get('/md-vs2/manage/search-query-group?search=' + this.form.grupo_ICD_10).then(res => {
 					Vue.set(this.$data, 'modelGroup', res.data)
 					this.isLoading.group = false
 				})

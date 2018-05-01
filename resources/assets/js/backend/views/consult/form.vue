@@ -61,37 +61,37 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Primário</label>
-							<vue-input :suggestions="modelSingle7" :loading="isLoading.single7" @input="fetchSingle7" v-model="form.ICD_10_primario"></vue-input>
+							<vue-input :suggestions="modelSingle7" :isFetching="isLoading.single7" @input="fetchSingle7" v-model="form.ICD_10_primario"></vue-input>
 						   </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Secundário</label>
-							<vue-input :suggestions="modelSingle" :loading="isLoading.single" @input="fetchSingle" v-model="form.ICD_10_secundario"></vue-input>
+							<vue-input :suggestions="modelSingle" :isFetching="isLoading.single" @input="fetchSingle" v-model="form.ICD_10_secundario"></vue-input>
 						    </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Secundário II</label>
-							<vue-input :suggestions="modelSingle2" :loading="isLoading.single2" @input="fetchSingle2" v-model="form.ICD_10_secundario_II"></vue-input>
+							<vue-input :suggestions="modelSingle2" :isFetching="isLoading.single2" @input="fetchSingle2" v-model="form.ICD_10_secundario_II"></vue-input>
 						   </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Secundário III</label>
-							<vue-input :suggestions="modelSingle3" :loading="isLoading.single3" @input="fetchSingle3" v-model="form.ICD_10_secundario_III"></vue-input>
+							<vue-input :suggestions="modelSingle3" :isFetching="isLoading.single3" @input="fetchSingle3" v-model="form.ICD_10_secundario_III"></vue-input>
 						    </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Secundário IV</label>
-							<vue-input :suggestions="modelSingle4" :loading="isLoading.single4" @input="fetchSingle4" v-model="form.ICD_10_secundario_IV"></vue-input>
+							<vue-input :suggestions="modelSingle4" :isFetching="isLoading.single4" @input="fetchSingle4" v-model="form.ICD_10_secundario_IV"></vue-input>
 						    </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Secundário V</label>
-							<vue-input :suggestions="modelSingle5" :loading="isLoading.single5" @input="fetchSingle5" v-model="form.ICD_10_secundario_V"></vue-input>
+							<vue-input :suggestions="modelSingle5" :isFetching="isLoading.single5" @input="fetchSingle5" v-model="form.ICD_10_secundario_V"></vue-input>
 						    </div>
 						</div>
 						<div class="col-sm-4">
@@ -106,7 +106,7 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>ICD-10 Óbito</label>
-							<vue-input :suggestions="modelSingle6" :loading="isLoading.single6" @input="fetchSingle6" v-model="form.ICD_10_obito"></vue-input>
+							<vue-input :suggestions="modelSingle6" :isFetching="isLoading.single6" @input="fetchSingle6" v-model="form.ICD_10_obito"></vue-input>
 						   </div>
 						</div>
 						<div class="col-sm-4">
