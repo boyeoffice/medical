@@ -14,6 +14,18 @@
 			</a>
 			<div class="navbar-custom-menu">
 				<ul class="nav navbar-nav">
+					<router-link to="/backend/messages" tag="li" class="dropdown messages-menu">
+						<a>
+						<i class="fa fa-envelope-o"></i>
+						<span class="label label-success">0</span>
+					    </a>
+					</router-link>
+					<router-link to="/backend/notify" tag="li" class="dropdown notifications-menu">
+						<a>
+						<i class="fa fa-bell-o"></i>
+						<span class="label label-success">0</span>
+					   </a>
+					</router-link>
 					<router-link to="/backend/profile" class="dropdown user user-menu" tag="li">
 						<a><img v-bind:src="userImage" alt="" class="user-image">
 						<span class="hidden-xs">{{currentUser.name}}</span></a>

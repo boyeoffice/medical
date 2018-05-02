@@ -62749,6 +62749,10 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 			path: 'techniques',
 			component: __WEBPACK_IMPORTED_MODULE_3__ParentLayout___default.a,
 			children: [{ path: '/', component: __webpack_require__(332) }]
+		}, {
+			path: 'messages',
+			component: __WEBPACK_IMPORTED_MODULE_3__ParentLayout___default.a,
+			children: [{ path: '/', component: __webpack_require__(363) }]
 		}]
 	}]
 });
@@ -65561,6 +65565,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	computed: {
@@ -65607,6 +65623,40 @@ var render = function() {
             "ul",
             { staticClass: "nav navbar-nav" },
             [
+              _c(
+                "router-link",
+                {
+                  staticClass: "dropdown messages-menu",
+                  attrs: { to: "/backend/messages", tag: "li" }
+                },
+                [
+                  _c("a", [
+                    _c("i", { staticClass: "fa fa-envelope-o" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label label-success" }, [
+                      _vm._v("0")
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "dropdown notifications-menu",
+                  attrs: { to: "/backend/notify", tag: "li" }
+                },
+                [
+                  _c("a", [
+                    _c("i", { staticClass: "fa fa-bell-o" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "label label-success" }, [
+                      _vm._v("0")
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
               _c(
                 "router-link",
                 {
@@ -90704,6 +90754,107 @@ module.exports = function() {
 	throw new Error("define cannot be used indirect");
 };
 
+
+/***/ }),
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(364)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/backend/views/message/index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-748fb8ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-748fb8ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 364 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-4" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "box box-primary" }, [
+            _c("div", { staticClass: "box-header with-boder" }, [
+              _c("h3", { staticClass: "box-title" }, [_vm._v("Messages")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "box-body" })
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-748fb8ac", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

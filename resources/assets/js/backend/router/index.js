@@ -72,6 +72,13 @@ const router = new VueRouter({
 		    	children: [
 		    	{path: '/', component: require('../views/technique/index.vue')}
 		    	]
+		    },
+		    {
+		    	path: 'messages',
+		    	component: ParentLayout,
+		    	children: [
+		    	{path: '/', component: require('../views/message/index.vue')}
+		    	]
 		    }
 		]
 	}
