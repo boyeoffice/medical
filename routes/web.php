@@ -52,4 +52,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::post('query-tech', 'QueryController@queryTech');
 	Route::get('query-tech', 'QueryController@getQueryTech');
 	Route::get('searchtech', 'QueryController@searchTech');
+	Route::get('messages/inbox', 'MessageController@inbox');
+	Route::post('messages', 'MessageController@store');
+	Route::get('messages/{id}', 'MessageController@show');
+	Route::get('message/users', 'MessageController@getUsers');
 });

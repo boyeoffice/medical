@@ -15,8 +15,7 @@ class CreateQueryIcd10SingleTable extends Migration
     {
         Schema::create('query_icd10_single', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('a');
-            $table->text('b');
+            $table->text('name');
         });
     }
 

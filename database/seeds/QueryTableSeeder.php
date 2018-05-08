@@ -70,20 +70,16 @@ class QueryTableSeeder extends Seeder
         ]);
 
         DB::table('query_icd10_single')->insert([
-        	'a' => 'A00',
-        	'b' => 'Cólera'
+        	'name' => 'A00-Cólera'
         ]);
         DB::table('query_icd10_single')->insert([
-        	'a' => 'A000',
-        	'b' => 'Cólera devida a Vibrio cholerae 01, estirpe cholerae'
+        	'name' => 'A000-Cólera devida a Vibrio cholerae 01, estirpe cholerae'
         ]);
         DB::table('query_icd10_single')->insert([
-        	'a' => 'A001',
-        	'b' => 'Cólera devida a Vibrio cholerae 01, estirpe El Tor'
+        	'name' => 'A001-Cólera devida a Vibrio cholerae 01, estirpe El Tor'
         ]);
         DB::table('query_icd10_single')->insert([
-        	'a' => 'A009',
-        	'b' => 'Cólera não especificada'
+        	'name' => 'A009-Cólera não especificada'
         ]);
     }
 }

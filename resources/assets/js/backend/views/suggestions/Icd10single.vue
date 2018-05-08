@@ -1,29 +1,27 @@
 <template>
 	<section class="content">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-4">
 					<div class="box box-info">
 						<div class="box-body">
-							<form @submit.prevent="save" class="form-horizontal">
-								<div class="form-group" v-for="(item, index) in form.items">
-									<div class="col-sm-4">
-										<input type="text" class="form-control" placeholder="A" v-model="item.a">
-									</div>
-									<div class="col-sm-7">
-										<input type="text" class="form-control" placeholder="B" v-model="item.b">
-									</div>
-									<div class="col-sm-1">
-										<a class="btn btn-danger" @click="form.items.splice(index, 1)">&times;</a>
-									</div>
-								</div>
-								<a @click.stop="addLine" class="btn btn-success">AddLine</a>
-							   <button v-if="isSending" disabled="" class="btn btn-primary"><i class="fa fa-spinner fa-spin"></i></button>
-							    <button v-else class="btn btn-primary">Save</button>
-							</form>
+							<form @submit.prevent="save">
+							<div class="form-group" v-for="(item, index) in form.items">
+								<label>Title</label>
+								<div class="input-group">
+								<input type="text" class="form-control" v-model="item.name">
+								<div class="input-group-btn">
+								<a class="btn btn-danger" @click="form.items.splice(index, 1)">&times;</a>
+							    </div>   
+							    </div>
+							</div>
+							<a href="javascript:void(0)" @click.stop="addLine" class="btn btn-success">AddLine</a>
+							<button disabled="" v-if="isSending" class="btn btn-primary"><i class="fa fa-spinner fa-spin"></i></button>
+							<button v-else class="btn btn-primary">Save</button>
+						</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
+				<div class="col-md-8">
 					<div class="box box-default">
 						<div class="box-header with-border">
 							<h3 class="box-title">ICD 10</h3>
@@ -32,14 +30,12 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>A</th>
-										<th>B</th>
+										<th>Title</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr v-for="data in model.data">
-									<td>{{data.a}}</td>
-									<td>{{data.b}}</td>
+									<td>{{data.name}}</td>
 								    </tr>
 								</tbody>
 							</table>
@@ -82,9 +78,9 @@
 				isSending: false,
 				form: {
 					items: [
-					{a: '', b: ''},
-					{a: '', b: ''},
-					{a: '', b: ''}
+					{name:''},
+					{name: ''},
+					{name: ''}
 					]
 				},
 				model: {
@@ -111,9 +107,9 @@
 					toastr.success('Operation was successfully')
 					this.isSending =false
 					this.form.items = [
-					{a: '', b: ''},
-					{a: '', b: ''},
-					{a: '', b: ''}
+					{name: ''},
+					{name: ''},
+					{name: ''}
 					]
 					this.fetchData()
 				}).catch(err => {
@@ -124,7 +120,7 @@
 				})
 			},
 			addLine(){
-				this.form.items.push({a: '', b: ''})
+				this.form.items.push({name: ''})
 			},
 			fetchData(){
 				Nprogress.start()

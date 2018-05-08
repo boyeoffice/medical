@@ -12,19 +12,18 @@ class QueryController extends Controller
     {
     	$this->validate($request, [
     		'items' => 'required|array|min:1',
-    		'items.*.a' => 'required',
-            'items.*.b' => 'required',
+    		'items.*.name' => 'required',
     	]);
     	 $items = [];
     	  foreach($request->items as $item) {
-    	  	$arrData = ['a' => $item['a'], 'b' => $item['b']];
+    	  	$arrData = ['name' => $item['name']];
     	  	DB::table('query_icd10_single')->insert($arrData);
     	  }
     }
     public function searchSingleQuery(Request $request)
     {
         $input = $request->search;
-        $model = DB::table('query_icd10_single')->where('a', 'LIKE', '%' .$input. '%')->take(5)->get();
+        $model = DB::table('query_icd10_single')->where('name', 'LIKE', '%' .$input. '%')->take(5)->get();
         return response()->json($model);
     }
     public function getSingleQuery(Request $request)

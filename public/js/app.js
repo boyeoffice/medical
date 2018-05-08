@@ -630,7 +630,7 @@ module.exports = Cancel;
 
 /***/ }),
 
-/***/ 16:
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11618,7 +11618,7 @@ module.exports = __webpack_require__(187);
 
 __webpack_require__(21);
 
-window.Vue = __webpack_require__(16);
+window.Vue = __webpack_require__(18);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

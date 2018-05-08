@@ -21,7 +21,8 @@ class CreateMessagesTable extends Migration
             $table->text('message');
             $table->enum('status', ['new', 'readed'])->default('new');
             $table->enum('remove_from', [0, 1])->default(1);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->foreign('conversation_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('from_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('to_user_id')->references('id')->on('users')->onDelete('cascade');
