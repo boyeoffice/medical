@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function Setting()
+    {
+        $setting = Setting::first();
+        return $setting;
+     }
 }

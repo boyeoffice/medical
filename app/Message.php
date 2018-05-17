@@ -16,4 +16,5 @@ class Message extends Model
     {
     	return $this->belongsTo('App\User', 'from_user_id');
     }
+   
 }

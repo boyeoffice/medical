@@ -24,6 +24,7 @@
 							<td>{{props.item.ICD_10_obito}}</td>
 							<td>{{props.item.alta_destino}}</td>
 							<td>{{props.item.alta_especialidade}}</td>
+							<td>{{props.item.observacoes}}</td>
 							<td>
 								<router-link :to="'/backend/consults/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
 							</td>
@@ -47,7 +48,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				source: '/md-vs2/manage/consult',
 				thead: [
 				{label: 'ID'},
-				{label: 'Iniciais Paciente'},
+				{label: 'Processo'},
 				{label: 'Primeira Consulta'},
 				{label: 'Sexo'},
 				{label: 'Idade'},
@@ -65,6 +66,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'ICD-10 Óbito'},
 				{label: 'Alta Destino'},
 				{label: 'Alta Especialidade'},
+				{label: 'Observações'},
 				{label: 'Action'}
 				]
 			}

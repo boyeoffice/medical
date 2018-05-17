@@ -13,6 +13,10 @@ Route::group(['prefix' => 'home'], function () {
 	Route::get('{path?}', 'HomeController@index')->where('path', '[\/\w\.-]*')->name('home');
  });
 
+Route::group(['prefix' => 'pt-v1/manage', 'middleware' => ['auth']], function() {
+    Route::get('setting', 'HomeController@Setting');
+});
+
 /* Dashboard Index */
 Route::group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => ['auth', 'admin']], function () {
     Route::get('{path?}', 'IndexController@index')->where('path', '[\/\w\.-]*');
@@ -56,4 +60,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::post('messages', 'MessageController@store');
 	Route::get('messages/{id}', 'MessageController@show');
 	Route::get('message/users', 'MessageController@getUsers');
+	Route::get('messages_count', 'MessageController@total_message');
+	Route::post('messages_update', 'MessageController@update');
 });

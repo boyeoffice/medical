@@ -14,7 +14,7 @@
 							<td>{{props.item.idade}}</td>
 							<td>{{props.item.origem}}</td>
 							<td>{{props.item.especialidade_origem}}</td>
-							<td>{{props.item.destino}}</td>
+							<td>{{props.item.reinternamento}}</td>
 							<td>{{props.item.grupo_ICD_10}}</td>
 							<td>{{props.item.ICD_10_primario}}</td>
 							<td>{{props.item.ICD_10_secundario}}</td>
@@ -26,6 +26,8 @@
 							<td>{{props.item.ICD_10_obito}}</td>
 							<td>{{props.item.alta_destino}}</td>
 							<td>{{props.item.alta_especialidade}}</td>
+							<td>{{props.item.mort_30_dias}}</td>
+							<td>{{props.item.observacoes}}</td>
 							<td>
 								<router-link :to="'/backend/admission/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
 							</td>
@@ -45,11 +47,11 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 			return{
 				BoxClass: 'box box-primary',
 				create: '/backend/admission/create',
-				title: 'Admissão',
+				title: 'Internamento',
 				source: '/md-vs2/manage/admission',
 				thead: [
 				{label: 'ID'},
-				{label: 'Iniciais Paciente'},
+				{label: 'Processo'},
 				{label: 'Data Entrada'},
 				{label: 'Data Saída'},
 				{label: 'Dias Internamento'},
@@ -57,7 +59,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'Idade'},
 				{label: 'Origem'},
 				{label: 'Especialidade Origem'},
-				{label: 'Destino'},
+				{label: 'Reinternamento'},
 				{label: 'Grupo ICD-10'},
 				{label: 'ICD-10 Primário'},
 				{label: 'ICD-10 Secundário'},
@@ -69,13 +71,15 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'ICD-10 Óbito'},
 				{label: 'Alta Destino'},
 				{label: 'Alta Especialidade'},
+				{label: 'Mort 30 Dias'},
+				{label: 'Observações'},
 				{label: 'Action'}
 				]
 			}
 		},
 		mounted(){
-			this.$store.commit('title_top_data', 'Admissão')
-			document.title = 'Admissão'
+			this.$store.commit('title_top_data', 'Internamento')
+			document.title = 'Internamento' //Admissão
 		}
 	}
 </script>

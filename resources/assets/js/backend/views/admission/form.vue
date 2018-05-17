@@ -5,8 +5,8 @@
 				<form @submit.prevent="save">
 					<div class="row">
 						<div class="col-sm-4">
-							<div class="form-group">
-							<label>Iniciais Paciente</label>
+							<div :class="{ 'form-group': true, 'has-error': errors.iniciais_paciente }">
+							<label>Processo</label>
 							<input type="text" class="form-control" v-model="form.iniciais_paciente">
 							</div>
 						</div>
@@ -38,7 +38,7 @@
 						  </div>
 						</div>
 						<div class="col-sm-4">
-							<div class="form-group">
+							<div :class="{'form-group': true, 'has-error': errors.idade}">
 							<label>Idade</label>
 							<input type="text" class="form-control" v-model="form.idade">
 						    </div>
@@ -57,8 +57,11 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
-							<label>Destino</label>
-							<vue-suggestions :suggestions="modelDestino" :loading="isLoading.destino" @input="fetchDestino" v-model="form.destino"></vue-suggestions>
+							<label>Reinternamento</label>
+							<select class="form-control" v-model="form.reinternamento">
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+							</select>
 						   </div>
 						</div>
 						<div class="col-sm-4">
@@ -128,7 +131,25 @@
 							<div class="form-group">
 							<label>Alta Especialidade</label>
 							<vue-suggestions :suggestions="modelAltaSpec" :loading="isLoading.alta_spec" @input="fetchAltaSpec" v-model="form.alta_especialidade"></vue-suggestions>
+						    </div>
 						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+							<label>Mort 30 Dias</label>
+							<select class="form-control" v-model="form.mort_30_dias">
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+							</select>
+						   </div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+							<label>Observações</label>
+							<select class="form-control" v-model="form.observacoes">
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
+							</select>
+						   </div>
 						</div>
 					</div>
 					<router-link to="/backend/admission" class="btn btn-default">Cancel</router-link>

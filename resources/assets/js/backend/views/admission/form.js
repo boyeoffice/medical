@@ -7,7 +7,10 @@ import Datepicker from 'vuejs-datepicker'
 			return{
 				isDelete: false,
 				isSending: false,
+				errors: {},
 				form: {
+					sexo: 'F',
+					obito: 'No',
 					origem: '',
 					ICD_10_secundario: '',
 					ICD_10_secundario_II: '',
@@ -15,7 +18,10 @@ import Datepicker from 'vuejs-datepicker'
 					ICD_10_secundario_IV: '',
 					ICD_10_secundario_V: '',
 					ICD_10_obito: '',
-					especialidade_origem: ''
+					especialidade_origem: '',
+					reinternamento: 'No',
+					observacoes: 'No',
+					mort_30_dias: 'No'
 				},
 				store: '/md-vs2/manage/admission',
 				method: 'post',
@@ -55,8 +61,8 @@ import Datepicker from 'vuejs-datepicker'
 			}
 		},
 		beforeMount(){
-			document.title = 'Admissão'
-			this.$store.commit('title_top_data', 'Admissão')
+			document.title = 'Internamento' //prevoius Admissão
+			this.$store.commit('title_top_data', 'Internamento')
 			if(this.$route.meta.mode === 'edit'){
 				this.initialize = '/md-vs2/manage/admission/' + this.$route.params.id + '/edit'
 				this.store = '/md-vs2/manage/admission/' + this.$route.params.id
@@ -75,7 +81,7 @@ import Datepicker from 'vuejs-datepicker'
 				}).catch(err => {
 					this.isSending = false
 					if(err.response.status === 422){
-						toastr.warning('Please fill all the fields!')
+						this.errors = err.response.data
 					}
 				})
 			},

@@ -37,6 +37,10 @@ export default {
 			this.memberList = false
 			this.inboxList = false
 			this.chatList = true
+			//mark message as readed
+			axios.post('/md-vs2/manage/messages_update', data.messages[0]).then(res => {
+				console.log(res)
+			})
 		},
 		clickUser(data){
 			this.chat = {}

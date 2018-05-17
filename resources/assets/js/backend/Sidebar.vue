@@ -40,11 +40,11 @@
 				</router-link>
 				<router-link to="/backend/admission" tag="li">
 					<a><i class="fa fa-medkit"></i>
-						<span>Admissão</span></a>
+						<span>Internamento</span></a>
 				</router-link>
 				<router-link to="/backend/techniques" tag="li">
 					<a><i class="fa fa-hospital-o"></i>
-						<span>Técnica</span></a>
+						<span>Técnicas</span></a>
 				</router-link>
 				<li class="treeview">
 					<a href="javascript:void(0)">

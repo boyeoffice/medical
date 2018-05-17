@@ -7,6 +7,8 @@ import VueSuggestions from '../vendor/suggestions'
 				isDelete: false,
 				isSending: false,
 				form: {
+					sexo: 'F',
+					obito: 'No',
 					origem: '',
 					ICD_10_secundario: '',
 					ICD_10_secundario_II: '',
@@ -50,7 +52,8 @@ import VueSuggestions from '../vendor/suggestions'
 					destino: false,
 					alta: false,
 					alta_spec: false
-					}
+					},
+					errors: {}
 			}
 		},
 		beforeMount(){
@@ -74,7 +77,7 @@ import VueSuggestions from '../vendor/suggestions'
 				}).catch(err => {
 					this.isSending = false
 					if(err.response.status === 422){
-						toastr.warning('Please fill all the fields!')
+						this.errors = err.response.data
 					}
 				})
 			},

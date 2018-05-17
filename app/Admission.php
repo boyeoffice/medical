@@ -28,7 +28,10 @@ class Admission extends Model
             'obito',
             'ICD_10_obito',
             'alta_destino',
-            'alta_especialidade'
+            'alta_especialidade',
+            'observacoes',
+            'reinternamento',
+            'mort_30_dias'
     ];
     protected $filter = ['id'];
 }

@@ -24,25 +24,10 @@ class CreateConsult extends FormRequest
     public function rules()
     {
         return [
-            //'user_id' => 'required|integer',
             'iniciais_paciente' => 'required',
-            'primeira_consulta' => 'required',
             'sexo' => 'required',
             'idade' => 'required',
-            'origem' => 'required',
-            'especialidade_origem' => 'required',
-            'destino' => 'required',
-            'grupo_ICD_10' => 'required',
-            'ICD_10_primario' => 'required',
-            'ICD_10_secundario' => 'required',
-            'ICD_10_secundario_II' => 'required',
-            'ICD_10_secundario_III' => 'required',
-            'ICD_10_secundario_IV' => 'required',
-            'ICD_10_secundario_V' => 'required',
             'obito' =>  'required',
-            'ICD_10_obito' => 'required',
-            'alta_destino' => 'required',
-            'alta_especialidade' => 'required'
         ];
     }
 }

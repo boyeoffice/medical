@@ -25,23 +25,17 @@ class MessageController extends Controller
     {
        // $chat = Message::where('');
     }
+    public function total_message()
+    {
+        $total = Message::where('to_user_id', Auth::id())->where('status', 'new')->count();
+        return $total;
+    }
     public function inbox()
     {
         $inbox = Conversation::where('user_1', Auth::id())
-        ->orWhere('user_2', Auth::id())->get();
-        return response()->json($inbox);
+        ->orWhere('user_2', Auth::id())->get(); 
+        return $inbox;
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -107,26 +101,23 @@ class MessageController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->conversation_id;
+        $messages = Message::where('status', 'new')
+        ->where('to_user_id', Auth::id())
+        ->where('conversation_id', $id)->get();
+        foreach ($messages as $message) {
+           $message->status = 'readed';
+            $message->update();
+        }
+        return response()->json($messages);
     }
 
     /**

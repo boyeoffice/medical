@@ -11,11 +11,11 @@ class Conversation extends Model
     protected $with = ['messages', 'user', 'to', 'from', 'last'];
     public function messages()
     {
-    	return $this->hasMany(Message::class)->orderBy('updated_at', 'asc');
+    	return $this->hasMany(Message::class)->orderBy('created_at', 'asc');
     }
     public function last()
     {
-        return $this->hasMany(Message::class)->orderBy('updated_at', 'desc');
+        return $this->hasMany(Message::class)->orderBy('created_at', 'desc');
     }
     public function user()
     {

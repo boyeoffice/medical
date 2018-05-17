@@ -27,7 +27,8 @@ class Consult extends Model
             'obito',
             'ICD_10_obito',
             'alta_destino',
-            'alta_especialidade'
+            'alta_especialidade',
+            'observacoes'
         ];
        // public $with = ['user'];
         protected $filter = ['id'];

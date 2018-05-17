@@ -17,12 +17,12 @@
 					<router-link to="/backend/messages" tag="li" class="dropdown messages-menu">
 						<a>
 						<i class="fa fa-envelope-o"></i>
-						<span class="label label-success">0</span>
+						<span class="label label-success">{{ newMsgCount }}</span>
 					    </a>
 					</router-link>
 					<router-link to="/backend/profile" class="dropdown user user-menu" tag="li">
 						<a><img v-bind:src="userImage" alt="" class="user-image">
-						<span class="hidden-xs">{{currentUser.name}}</span></a>
+						<span class="hidden-xs">{{ currentUser.name }}</span></a>
 					</router-link>
 					<router-link tag="li" to="/backend/settings"><a><i class="fa fa-gears"></i></a></router-link>
 				</ul>
@@ -33,6 +33,11 @@
 
 <script>
 	export default {
+		data(){
+			return {
+				newMsgCount: ''
+			}
+		},
 		computed: {
 			currentUser(){
 				return this.$store.state.auth_user
@@ -43,6 +48,11 @@
 			settings(){
 				return this.$store.state.settings
 			}
+		},
+		mounted(){
+			axios.get('/md-vs2/manage/messages_count').then(res => {
+				this.newMsgCount = res.data
+			})
 		}
 	}
 </script>
