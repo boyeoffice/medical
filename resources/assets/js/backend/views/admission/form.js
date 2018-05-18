@@ -20,7 +20,6 @@ import Datepicker from 'vuejs-datepicker'
 					ICD_10_obito: '',
 					especialidade_origem: '',
 					reinternamento: 'No',
-					observacoes: 'No',
 					mort_30_dias: 'No'
 				},
 				store: '/md-vs2/manage/admission',

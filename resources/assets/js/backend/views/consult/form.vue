@@ -14,8 +14,8 @@
 							<div class="form-group">
 							<label>Primeira Consulta</label>
 							<select class="form-control" v-model="form.primeira_consulta">
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
 							</div>
 						</div>
@@ -124,10 +124,7 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>Observações</label>
-							<select class="form-control" v-model="form.observacoes">
-								<option value="Yes">Yes</option>
-								<option value="No">No</option>
-							</select>
+							<input class="form-control" v-model="form.observacoes">
 						   </div>
 						</div>
 					</div>

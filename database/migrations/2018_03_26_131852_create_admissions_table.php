@@ -23,7 +23,7 @@ class CreateAdmissionsTable extends Migration
             $table->text('idade')->nullable();
             $table->text('origem')->nullable();
             $table->text('especialidade_origem')->nullable();
-            $table->text('destino')->nullable();
+           // $table->text('destino')->nullable();
             $table->text('grupo_ICD_10')->nullable();
             $table->text('ICD_10_primario')->nullable();
             $table->text('ICD_10_secundario')->nullable();

@@ -14,7 +14,7 @@ class AddObservacoesToTable extends Migration
     public function up()
     {
         Schema::table('consults', function (Blueprint $table) {
-            $table->enum('observacoes', ['Yes', 'No'])->comment('Yes, No')->after('alta_especialidade');
+            $table->text('observacoes')->nullable()->after('alta_especialidade');
         });
     }
 

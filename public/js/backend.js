@@ -83384,9 +83384,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__form_js__["a" /* default */]);
@@ -83418,7 +83415,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				ICD_10_secundario_IV: '',
 				ICD_10_secundario_V: '',
 				ICD_10_obito: '',
-				especialidade_origem: ''
+				especialidade_origem: '',
+				primeira_consulta: 'No'
 			},
 			store: '/md-vs2/manage/consult',
 			method: 'post',
@@ -84271,11 +84269,11 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "yes" } }, [
+                      _c("option", { attrs: { value: "Yes" } }, [
                         _vm._v("Yes")
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "no" } }, [_vm._v("No")])
+                      _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
                     ]
                   )
                 ])
@@ -84751,46 +84749,26 @@ var render = function() {
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("Observações")]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.observacoes,
-                          expression: "form.observacoes"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "observacoes",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.observacoes,
+                        expression: "form.observacoes"
                       }
-                    },
-                    [
-                      _c("option", { attrs: { value: "Yes" } }, [
-                        _vm._v("Yes")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
-                    ]
-                  )
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: _vm.form.observacoes },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "observacoes", $event.target.value)
+                      }
+                    }
+                  })
                 ])
               ])
             ]),
@@ -85319,9 +85297,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0__form_js__["a" /* default */]);
@@ -85359,7 +85334,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				ICD_10_obito: '',
 				especialidade_origem: '',
 				reinternamento: 'No',
-				observacoes: 'No',
 				mort_30_dias: 'No'
 			},
 			store: '/md-vs2/manage/admission',
@@ -86284,46 +86258,26 @@ var render = function() {
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("Observações")]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.observacoes,
-                          expression: "form.observacoes"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "observacoes",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.observacoes,
+                        expression: "form.observacoes"
                       }
-                    },
-                    [
-                      _c("option", { attrs: { value: "Yes" } }, [
-                        _vm._v("Yes")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "No" } }, [_vm._v("No")])
-                    ]
-                  )
+                    ],
+                    staticClass: "form-control",
+                    domProps: { value: _vm.form.observacoes },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "observacoes", $event.target.value)
+                      }
+                    }
+                  })
                 ])
               ])
             ]),

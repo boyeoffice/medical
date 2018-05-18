@@ -16,7 +16,8 @@ import VueSuggestions from '../vendor/suggestions'
 					ICD_10_secundario_IV: '',
 					ICD_10_secundario_V: '',
 					ICD_10_obito: '',
-					especialidade_origem: ''
+					especialidade_origem: '',
+					primeira_consulta: 'No'
 				},
 				store: '/md-vs2/manage/consult',
 				method: 'post',

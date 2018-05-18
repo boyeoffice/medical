@@ -16,8 +16,8 @@ class AddReinternamentoToAdmissionsTable extends Migration
         Schema::table('admissions', function (Blueprint $table) {
             $table->enum('reinternamento', ['Yes', 'No'])->comment('Yes, No')->after('alta_especialidade');
             $table->enum('mort_30_dias', ['Yes', 'No'])->comment('Yes, No')->after('reinternamento');
-            $table->enum('observacoes', ['Yes', 'No'])->comment('Yes, No')->after('mort_30_dias');
-            $table->dropColumn('destino');
+            $table->text('observacoes')->nullable()->after('mort_30_dias');
+           // $table->dropColumnIfExists('destino');
         });
     }
 

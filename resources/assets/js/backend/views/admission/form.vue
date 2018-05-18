@@ -145,10 +145,7 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 							<label>Observações</label>
-							<select class="form-control" v-model="form.observacoes">
-								<option value="Yes">Yes</option>
-								<option value="No">No</option>
-							</select>
+							<input class="form-control" v-model="form.observacoes">
 						   </div>
 						</div>
 					</div>
