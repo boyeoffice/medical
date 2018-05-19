@@ -15,6 +15,8 @@ Route::group(['prefix' => 'home'], function () {
 
 Route::group(['prefix' => 'pt-v1/manage', 'middleware' => ['auth']], function() {
     Route::get('setting', 'HomeController@Setting');
+    Route::patch('profile', 'HomeController@updateProfile');
+    Route::patch('password', 'HomeController@password');
 });
 
 /* Dashboard Index */
