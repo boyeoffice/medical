@@ -17,6 +17,10 @@ Route::group(['prefix' => 'pt-v1/manage', 'middleware' => ['auth']], function() 
     Route::get('setting', 'HomeController@Setting');
     Route::patch('profile', 'HomeController@updateProfile');
     Route::patch('password', 'HomeController@password');
+    Route::get('users', 'MessageController@getUser');
+    Route::get('messages', 'MessageController@inbox');
+    Route::post('messages', 'MessageController@postSend');
+    Route::get('chats/{id}', 'MessageController@getChat');
 });
 
 /* Dashboard Index */

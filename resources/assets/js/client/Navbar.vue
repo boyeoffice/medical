@@ -17,6 +17,8 @@
         		  <router-link to="/home/message" tag="li"><a>Message</a></router-link>
         		  <router-link to="/home/account" tag="li"><a>My Account</a></router-link>
         		   <li><a href="#"><img :src="uri + user.avatar" width="20" height="20" class="img img-circle"></a></li>
+        		   <li><a href="#">{{ user.name }}</a></li>
+        		   <li><a href="javascript:void(0)" @click="logout">Logout</a></li>
         	    </ul>
               </div>
 		</div>
@@ -34,6 +36,13 @@
 		computed: {
 			setting(){
 				return this.$store.state.settings
+			}
+		},
+		methods: {
+			logout(){
+				axios.post('/logout').then(res => {
+					window.location = '/login'
+				})
 			}
 		}
 	}
