@@ -26,7 +26,7 @@
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-body box-profile">
-							<img :src="uri + '/' + user.avatar" alt="" class="profile-user-img img-responsive img-circle">
+							<img :src="uri + user.avatar" alt="" class="profile-user-img img-responsive img-circle">
 							<h3 class="profile-username text-center">{{user.name}}</h3>
 							<a href="javascript:void(0)" class="btn btn-success"><i class="fa fa-camera"></i> Change</a>
 							<button class="btn btn-primary">Save</button>

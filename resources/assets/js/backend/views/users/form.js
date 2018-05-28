@@ -3,7 +3,7 @@ export default {
 			return{
 				isSending: false,
 				errors: {},
-				form: {},
+				form: {is_admin: 0, status: 2, user_type: 'client'},
 				store: '/md-vs2/manage/users',
 				initialize: '/md-vs2/manage/users',
 				method: 'post',
