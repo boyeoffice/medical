@@ -21,15 +21,17 @@ Route::group(['prefix' => 'pt-v1/manage', 'middleware' => ['auth']], function() 
     Route::get('messages', 'MessageController@inbox');
     Route::post('messages', 'MessageController@postSend');
     Route::get('chats/{id}', 'MessageController@getChat');
+    Route::get('admissions', 'HomeController@getAdmissions');
+    Route::post('admissions', 'HomeController@storeAdmission');
 });
 
 /* Dashboard Index */
-Route::group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => ['auth']], function () {
     Route::get('{path?}', 'IndexController@index')->where('path', '[\/\w\.-]*');
  });
 
  //Response to Json
-Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware' => ['auth', 'admin']], function(){
+Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware' => ['auth']], function(){
 	Route::resource('users', 'UsersController');
 	Route::get('all-users', 'UsersController@getUsers');
 	Route::put('update-profile', 'ProfileController@updateProfile');

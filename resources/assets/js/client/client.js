@@ -4,6 +4,7 @@ window.Vue = require('vue');
 import App from '../App'
 import Router from './router'
 import { store } from './vuex/store'
+window.Nprogress = require('nprogress-npm')
 Vue.use(require('vue-moment'))
 
 window.toastr = require('toastr/build/toastr.min.js');

@@ -1,16 +1,21 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<navbar></navbar>
-		<div class="container">
+		<sidebar></sidebar>
+		<div class="content-wrapper">
+			<section class="content-header"><h1>Dashboard</h1></section>
 			<router-view></router-view>
 		</div>
+		<main-footer></main-footer>
 	</div>
 </template>
 
 <script>
 import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+import MainFooter from './Footer'
 	export default {
-		components: {Navbar},
+		components: {Navbar, Sidebar, MainFooter},
 		mounted(){
 			this.fetchData()
 		},

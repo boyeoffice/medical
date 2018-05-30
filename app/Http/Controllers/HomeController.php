@@ -7,6 +7,10 @@ use App\Setting;
 use App\User;
 use Auth;
 use Hash;
+use App\Consult;
+use App\Admission;
+use App\Http\Requests\CreateAdmission;
+use App\Http\Requests\UpdateAdmission;
 
 class HomeController extends Controller
 {
@@ -64,5 +68,18 @@ class HomeController extends Controller
         $user->update();
 
         return response()->json(['success' => true]);
+     }
+     /** Get all admissions from database **/
+     public function getAdmissions()
+     {
+        $admission = Admission::filterPaginateOrder();
+        return response()->json(['model' => $admission]);
+     }
+     /** Store data in storage **/
+     public function storeAdmission(CreateAdmission $request)
+     {
+        $admission = $request->all();
+        Admission::create($admission);
+        return response()->json(['saved' => true]);
      }
 }

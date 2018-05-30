@@ -17,7 +17,7 @@
 					<a><i class="fa fa-dashboard"></i>
 						<span>Dashboard</span></a>
 				</router-link>
-				<li class="treeview">
+				<li class="treeview" v-if="authUser.is_admin == 1">
 					<a href="javascript:void(0)">
 						<i class="fa fa-users"></i>
 						<span>Manage Users</span>
@@ -46,7 +46,7 @@
 					<a><i class="fa fa-hospital-o"></i>
 						<span>Técnicas</span></a>
 				</router-link>
-				<li class="treeview">
+				<li class="treeview" v-if="authUser.is_admin == 1">
 					<a href="javascript:void(0)">
 						<i class="fa fa-database"></i>
 						<span>Gestão de Campos </span>
@@ -95,7 +95,7 @@
 						</router-link>
 					</ul>
 				</li>
-				<router-link to="/backend/settings" tag="li">
+				<router-link v-if="authUser.is_admin == 1" to="/backend/settings" tag="li">
 					<a><i class="fa  fa-gears"></i>
 						<span>Settings</span></a>
 				</router-link>
@@ -106,6 +106,11 @@
 
 <script>
 	export default {
+		data(){
+			return{
+				authUser: window.User
+			}
+		},
 		computed: {
 			currentUser(){
 				return this.$store.state.auth_user

@@ -5,7 +5,6 @@ import Datepicker from 'vuejs-datepicker'
 		components: {VueInput, VueSuggestions, Datepicker},
 		data(){
 			return{
-				authUser: window.User,
 				isDelete: false,
 				isSending: false,
 				errors: {},
@@ -23,9 +22,9 @@ import Datepicker from 'vuejs-datepicker'
 					reinternamento: 'No',
 					mort_30_dias: 'No'
 				},
-				store: '/md-vs2/manage/admission',
+				store: '/pt-v1/manage/admissions',
 				method: 'post',
-				initialize: '/md-vs2/manage/admission',
+				initialize: '/pt-v1/manage/admissions',
 				//users: [],
 				selectedName: '',
 				modelGroup: [],
@@ -64,8 +63,8 @@ import Datepicker from 'vuejs-datepicker'
 			document.title = 'Internamento' //prevoius Admissão
 			this.$store.commit('title_top_data', 'Internamento')
 			if(this.$route.meta.mode === 'edit'){
-				this.initialize = '/md-vs2/manage/admission/' + this.$route.params.id + '/edit'
-				this.store = '/md-vs2/manage/admission/' + this.$route.params.id
+				this.initialize = '/pt-v1/manage/admissions/' + this.$route.params.id + '/edit'
+				this.store = '/pt-v1/manage/admissions/' + this.$route.params.id
 				this.method = 'patch'
 				this.isDelete = true
 				this.fetchData()
@@ -76,7 +75,7 @@ import Datepicker from 'vuejs-datepicker'
 				this.form.user_id = window.User.id
 				this.isSending = true
 				axios[this.method](this.store, this.form).then(res => {
-					this.$router.push('/backend/admission')
+					this.$router.push('/home/admission')
 					this.isSending = false
 					console.log(res.data)
 				}).catch(err => {

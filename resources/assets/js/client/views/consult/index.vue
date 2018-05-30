@@ -4,7 +4,8 @@
 			<div class="col-md-12">
 				<data-viewer :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
 					<template slot-scope="props">
-						<tr v-if="props.item.user_id == authUser.id || authUser.is_admin == 1">
+						<tr>
+							<td class="col-md-2">{{props.item.id}}</td>
 							<td width="100px">{{props.item.iniciais_paciente}}</td>
 							<td>{{props.item.primeira_consulta}}</td>
 							<td>{{props.item.sexo}}</td>
@@ -24,7 +25,6 @@
 							<td>{{props.item.alta_destino}}</td>
 							<td>{{props.item.alta_especialidade}}</td>
 							<td>{{props.item.observacoes}}</td>
-							<td>{{props.item.user.name}}</td>
 							<td>
 								<router-link :to="'/backend/consults/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
 							</td>
@@ -42,12 +42,12 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 		components: {DataViewer},
 		data(){
 			return{
-				authUser: window.User,
 				BoxClass: 'box box-primary',
-				create: '/backend/consults/create',
+				create: '/home/consults/create',
 				title: 'Consultas',
 				source: '/md-vs2/manage/consult',
 				thead: [
+				{label: 'ID'},
 				{label: 'Processo'},
 				{label: 'Primeira Consulta'},
 				{label: 'Sexo'},
@@ -67,7 +67,6 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'Alta Destino'},
 				{label: 'Alta Especialidade'},
 				{label: 'Observações'},
-				{label: 'Created By'},
 				{label: 'Action'}
 				]
 			}

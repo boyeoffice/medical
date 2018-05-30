@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Admission;
 use App\Http\Requests\CreateAdmission;
 use App\Http\Requests\UpdateAdmission;
+use Auth;
 
 class AdmissionController extends Controller
 {

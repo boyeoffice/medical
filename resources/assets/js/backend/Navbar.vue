@@ -24,7 +24,7 @@
 						<a><img v-bind:src="userImage" alt="" class="user-image">
 						<span class="hidden-xs">{{ currentUser.name }}</span></a>
 					</router-link>
-					<router-link tag="li" to="/backend/settings"><a><i class="fa fa-gears"></i></a></router-link>
+					<router-link v-if="currentUser.is_admin == 1" tag="li" to="/backend/settings"><a><i class="fa fa-gears"></i></a></router-link>
 				</ul>
 			</div>
 		</nav>

@@ -9,7 +9,7 @@ class Consult extends Model
 {
     use FilterPaginateOrder;
     protected $fillable = [
-    		 //'user_id',
+    		 'user_id',
             'iniciais_paciente', 
             'primeira_consulta',
             'sexo',  
@@ -32,4 +32,9 @@ class Consult extends Model
         ];
        // public $with = ['user'];
         protected $filter = ['id'];
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
+        protected $with = ['user'];
 }

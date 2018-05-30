@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<data-viewer :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
 					<template slot-scope="props">
-						<tr>
+						<tr v-if="props.item.user_id == authUser.id || authUser.is_admin == 1">
 							<td class="col-md-2">{{props.item.id}}</td>
 							<td width="100px">{{props.item.iniciais_paciente}}</td>
 							<td>{{props.item.data_entrada | moment('Do MMMM YYYY')}}</td>
@@ -28,6 +28,7 @@
 							<td>{{props.item.alta_especialidade}}</td>
 							<td>{{props.item.mort_30_dias}}</td>
 							<td>{{props.item.observacoes}}</td>
+							<td>{{props.item.user.name}}</td>
 							<td>
 								<router-link :to="'/backend/admission/' + props.item.id + '/edit'" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></router-link>
 							</td>
@@ -45,6 +46,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 		components: {DataViewer},
 		data(){
 			return{
+				authUser: window.User,
 				BoxClass: 'box box-primary',
 				create: '/backend/admission/create',
 				title: 'Internamento',
@@ -73,6 +75,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'Alta Especialidade'},
 				{label: 'Mort 30 Dias'},
 				{label: 'Observações'},
+				{label: 'Created By'},
 				{label: 'Action'}
 				]
 			}

@@ -70,6 +70,7 @@ import VueSuggestions from '../vendor/suggestions'
 		},
 		methods: {
 			save(){
+				this.form.user_id = window.User.id
 				this.isSending = true
 				axios[this.method](this.store, this.form).then(res => {
 					this.$router.push('/backend/consults')

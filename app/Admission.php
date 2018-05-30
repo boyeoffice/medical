@@ -9,6 +9,7 @@ class Admission extends Model
 {
     use FilterPaginateOrder;
     protected $fillable = [
+            'user_id',
     		'iniciais_paciente',
     		 'data_entrada',
             'data_saída',
@@ -34,4 +35,9 @@ class Admission extends Model
             'mort_30_dias'
     ];
     protected $filter = ['id'];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    protected $with = ['user'];
 }

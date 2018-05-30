@@ -1,35 +1,42 @@
 <template>
-	<nav class="navbar navbar-default">
-		<div class="container">
-			 <!-- Brand and toggle get grouped for better mobile display -->
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			      </button>
-			      <router-link to="/home" class="navbar-brand">{{ setting.site_name }}</router-link>
-			    </div>
-			     <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              	<ul class="nav navbar-nav navbar-right">
-        		  <router-link to="/home/message" tag="li"><a>Message</a></router-link>
-        		  <router-link to="/home/account" tag="li"><a>My Account</a></router-link>
-        		   <li><a href="#"><img :src="uri + user.avatar" width="20" height="20" class="img img-circle"></a></li>
-        		   <li><a href="#">{{ user.name }}</a></li>
-        		   <li><a href="javascript:void(0)" @click="logout">Logout</a></li>
-        	    </ul>
-              </div>
-		</div>
-	</nav>
+	<header class="main-header">
+		<router-link class="logo" to="/backend">
+			<span class="logo-mini">
+				<b>H</b>AT
+			</span>
+			<span class="logo-lg">
+				<b>{{setting.site_name}}</b>
+			</span>
+		</router-link>	
+		<nav class="navbar navbar-static-top">
+			<a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+				<span class="sr-only">Toggle Navigation</span>
+			</a>
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<router-link to="/backend/messages" tag="li" class="dropdown messages-menu">
+						<a>
+						<i class="fa fa-envelope-o"></i>
+						<span class="label label-success">{{ newMsgCount }}</span>
+					    </a>
+					</router-link>
+					<router-link to="/backend/profile" class="dropdown user user-menu" tag="li">
+						<a><img v-bind:src="uri + currentUser.avatar" alt="" class="user-image">
+						<span class="hidden-xs">{{ currentUser.name }}</span></a>
+					</router-link>
+					<li><a href="javascript:void(0)" data-toggle="logout" title="logout" @click="logout"><i class="fa fa-power-off"></i></a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 </template>
 
 <script>
-	export default{
+	export default {
 		data(){
-			return{
-				user: window.User,
+			return {
+				newMsgCount: '',
+				currentUser: window.User,
 				uri: window.url
 			}
 		},
@@ -38,8 +45,13 @@
 				return this.$store.state.settings
 			}
 		},
-		methods: {
-			logout(){
+		mounted(){
+			axios.get('/md-vs2/manage/messages_count').then(res => {
+				this.newMsgCount = res.data
+			})
+		    },
+			methods: {
+				logout(){
 				axios.post('/logout').then(res => {
 					window.location = '/login'
 				})

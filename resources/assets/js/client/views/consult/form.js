@@ -1,14 +1,11 @@
 import VueInput from '../vendor/VueSuggestion'
 import VueSuggestions from '../vendor/suggestions'
-import Datepicker from 'vuejs-datepicker'
 	export default{
-		components: {VueInput, VueSuggestions, Datepicker},
+		components: {VueInput, VueSuggestions},
 		data(){
 			return{
-				authUser: window.User,
 				isDelete: false,
 				isSending: false,
-				errors: {},
 				form: {
 					sexo: 'F',
 					obito: 'No',
@@ -20,12 +17,11 @@ import Datepicker from 'vuejs-datepicker'
 					ICD_10_secundario_V: '',
 					ICD_10_obito: '',
 					especialidade_origem: '',
-					reinternamento: 'No',
-					mort_30_dias: 'No'
+					primeira_consulta: 'No'
 				},
-				store: '/md-vs2/manage/admission',
+				store: '/md-vs2/manage/consult',
 				method: 'post',
-				initialize: '/md-vs2/manage/admission',
+				initialize: '/md-vs2/manage/consult',
 				//users: [],
 				selectedName: '',
 				modelGroup: [],
@@ -57,15 +53,16 @@ import Datepicker from 'vuejs-datepicker'
 					destino: false,
 					alta: false,
 					alta_spec: false
-					}
+					},
+					errors: {}
 			}
 		},
 		beforeMount(){
-			document.title = 'Internamento' //prevoius Admissão
-			this.$store.commit('title_top_data', 'Internamento')
+			document.title = 'Consultas'
+			this.$store.commit('title_top_data', 'Consultas')
 			if(this.$route.meta.mode === 'edit'){
-				this.initialize = '/md-vs2/manage/admission/' + this.$route.params.id + '/edit'
-				this.store = '/md-vs2/manage/admission/' + this.$route.params.id
+				this.initialize = '/md-vs2/manage/consult/' + this.$route.params.id + '/edit'
+				this.store = '/md-vs2/manage/consult/' + this.$route.params.id
 				this.method = 'patch'
 				this.isDelete = true
 				this.fetchData()
@@ -73,10 +70,9 @@ import Datepicker from 'vuejs-datepicker'
 		},
 		methods: {
 			save(){
-				this.form.user_id = window.User.id
 				this.isSending = true
 				axios[this.method](this.store, this.form).then(res => {
-					this.$router.push('/backend/admission')
+					this.$router.push('/home/consults')
 					this.isSending = false
 					console.log(res.data)
 				}).catch(err => {
@@ -87,10 +83,8 @@ import Datepicker from 'vuejs-datepicker'
 				})
 			},
 			fetchData(){
-				Nprogress.start()
 				axios.get(this.initialize).then(res => {
 					this.form = res.data
-					Nprogress.done()
 				})
 			},
 			deleteForm(){
@@ -110,7 +104,7 @@ import Datepicker from 'vuejs-datepicker'
 			//},
 			fetchGroup(){
 				this.isLoading.group = true
-				axios.get('/md-vs2/manage/search-query-group?search=' + this.form.grupo_ICD_10).then(res => {
+				axios.get('/md-vs2/manage/search-query-group?search=' + this.form.ICD_10_secundario_II).then(res => {
 					Vue.set(this.$data, 'modelGroup', res.data)
 					this.isLoading.group = false
 				})
@@ -207,15 +201,6 @@ import Datepicker from 'vuejs-datepicker'
 			},
 			clearForm(){
 				this.form = {}
-			}
-		},
-		computed: {
-			daysInHospital() {  
-				var oneDay = 24*60*60*1000
-				var dateIn = this.form.data_entrada
-				var dateOut = this.form.data_saída
-				var diffDays = Math.round(Math.abs((dateOut - dateIn)/(oneDay)))
-				return this.form.dias_internamento = diffDays || this.form.dias_internamento
 			}
 		}
 	}

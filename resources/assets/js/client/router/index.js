@@ -27,6 +27,22 @@ const router = new VueRouter({
 			children: [
 			{path: '/', component: require('../views/message/index.vue')}
 			]
+		},
+		{
+			path: 'consults',
+			component: Layouts,
+			children: [
+			{path: '/', component: require('../views/consult/index.vue')},
+			{path: 'create', component:require('../views/consult/form.vue')}
+			]
+		},
+		{
+			path: 'admission',
+			component: Layouts,
+			children: [
+			{path: '/', component: require('../views/admission/index.vue')},
+			{path: 'create', component: require('../views/admission/form.vue')}
+			]
 		}
 		]
 	}
