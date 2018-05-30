@@ -2,7 +2,7 @@
 
 Route::get('/', function ($guard = null) {
 	 if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect('/backend');
        }
         return view('welcome');
 });
