@@ -18,7 +18,11 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        $admission = Admission::filterPaginateOrder();
+        if(Auth::user()->is_admin === 1){
+            $admission = Admission::filterPaginateOrder();
+        }else{
+            $admission = Admission::where('user_id', Auth::id())->filterPaginateOrder();
+        }
         return response()->json(['model' => $admission]);
     }
 

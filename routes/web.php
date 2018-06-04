@@ -6,25 +6,10 @@ Route::get('/', function ($guard = null) {
        }
         return view('welcome');
 });
-
-Auth::routes();
-
-Route::group(['prefix' => 'home'], function () {
-	Route::get('{path?}', 'HomeController@index')->where('path', '[\/\w\.-]*')->name('home');
- });
-
-Route::group(['prefix' => 'pt-v1/manage', 'middleware' => ['auth']], function() {
-    Route::get('setting', 'HomeController@Setting');
-    Route::patch('profile', 'HomeController@updateProfile');
-    Route::patch('password', 'HomeController@password');
-    Route::get('users', 'MessageController@getUser');
-    Route::get('messages', 'MessageController@inbox');
-    Route::post('messages', 'MessageController@postSend');
-    Route::get('chats/{id}', 'MessageController@getChat');
-    Route::get('admissions', 'HomeController@getAdmissions');
-    Route::post('admissions', 'HomeController@storeAdmission');
-});
-
+//Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 /* Dashboard Index */
 Route::group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => ['auth']], function () {
     Route::get('{path?}', 'IndexController@index')->where('path', '[\/\w\.-]*');

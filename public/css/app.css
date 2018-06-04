@@ -8363,10 +8363,6 @@ video {
   vertical-align: middle;
 }
 
-.med .app {
-  background-color: #C93756;
-}
-
 .wrapper-page {
   display: table;
   height: 100vh;
@@ -8440,7 +8436,7 @@ form .form-control {
 }
 
 .theme-btn {
-  background-color: #ef4153;
+  background-color: #3c8dbc;
   border-radius: 30px;
   font-weight: 500;
   color: #fff;
@@ -8450,15 +8446,6 @@ form .form-control {
 
 .mt-30 {
   margin-top: 30px;
-}
-
-.theme-btn {
-  background-color: #ef4153;
-  border-radius: 30px;
-  font-weight: 500;
-  color: #fff;
-  padding: 8px 15px;
-  text-transform: capitalize;
 }
 
 .btn {

@@ -31,7 +31,7 @@
 			},
 			link: {
 				type: String,
-				default: 'more-info'
+				default: '#'
 			},
 			icon: {
 				type: String,

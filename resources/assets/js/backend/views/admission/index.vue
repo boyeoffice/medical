@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<data-viewer :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
 					<template slot-scope="props">
-						<tr v-if="props.item.user_id == authUser.id || authUser.is_admin == 1">
+						<tr>
 							<td class="col-md-2">{{props.item.id}}</td>
 							<td width="100px">{{props.item.iniciais_paciente}}</td>
 							<td>{{props.item.data_entrada | moment('Do MMMM YYYY')}}</td>

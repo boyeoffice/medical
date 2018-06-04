@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateConsult;
 use App\Http\Requests\UpdateConsult;
 use App\Consult;
+use Auth;
 
 class ConsultController extends Controller
 {
@@ -17,7 +18,11 @@ class ConsultController extends Controller
      */
     public function index()
     {
-        $consult = Consult::filterPaginateOrder();
+        if(Auth::user()->is_admin === 1){
+            $consult = Consult::filterPaginateOrder();
+        }else{
+            $consult = Consult::where('user_id', Auth::id())->filterPaginateOrder();
+        }
         return response()->json(['model' => $consult]);
     }
 
