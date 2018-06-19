@@ -85,7 +85,8 @@ const router = new VueRouter({
 				component: ParentLayout,
 				children: [
 					{path: '/', component: require('../views/agenda/index.vue')},
-					{path: 'create-event', component: require('../views/agenda/form.vue')}
+					{path: 'create-event', component: require('../views/agenda/form.vue')},
+					{path: ':id/edit', component: require('../views/agenda/form.vue'), meta: {mode: 'edit'}}
 				]
 			},
 			{
@@ -94,6 +95,15 @@ const router = new VueRouter({
 				children: [
 					{path: '/', component: require('../views/formacao/index.vue')},
 					{path: 'create', component: require('../views/formacao/form.vue')}
+				]
+			},
+			{
+				path: 'atividade-cientifica',
+				component: ParentLayout,
+				children: [
+					{path: '/', component: require('../views/atividade-cientifica/index.vue')},
+					{path: 'create', component: require('../views/atividade-cientifica/form.vue')},
+					{path: ':id/edit', component: require('../views/atividade-cientifica/form.vue')}
 				]
 			}
 		]

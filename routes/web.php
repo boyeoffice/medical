@@ -55,4 +55,5 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::get('message/users', 'MessageController@getUsers');
 	Route::get('messages_count', 'MessageController@total_message');
 	Route::post('messages_update', 'MessageController@update');
+	Route::resource('calendar', 'AgendaController');
 });
