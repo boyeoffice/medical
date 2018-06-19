@@ -75,8 +75,8 @@
                 <small> of {{model.last_page}}</small>
             </div>
             <div class="pagination-item">
-                <button @click="prev" class="btn btn-default btn-sm">Prev</button>
-                <button @click="next" class="btn btn-default btn-sm">Next</button>
+                <button @click="prev" :disabled="! model.prev_page_url" class="btn btn-default btn-sm">Prev</button>
+                <button @click="next" :disabled="! model.next_page_url" class="btn btn-default btn-sm">Next</button>
             </div>
         </div>
     </div>

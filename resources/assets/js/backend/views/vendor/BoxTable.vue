@@ -73,8 +73,8 @@
                 <small> of {{model.last_page}}</small>
             </div>
             <div class="pagination-item">
-                <button @click="prev" class="btn btn-default btn-sm">Prev</button>
-                <button @click="next" class="btn btn-default btn-sm">Next</button>
+                <button @click="prev" :disabled="! model.prev_page_url" class="btn btn-default btn-sm">Prev</button>
+                <button @click="next" :disabled="! model.next_page_url" class="btn btn-default btn-sm">Next</button>
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
                     direction: 'desc',
                     per_page: 10,
                     page: 1,
-                    search_column: 'id',
+                    search_column: 'username',
                     search_operator: 'equal_to',
                     search_query_1: '',
                     search_query_2: ''

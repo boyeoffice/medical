@@ -79,7 +79,23 @@ const router = new VueRouter({
 		    	children: [
 		    	{path: '/', component: require('../views/message/index.vue')}
 		    	]
-		    }
+			},
+			{
+				path: 'agenda',
+				component: ParentLayout,
+				children: [
+					{path: '/', component: require('../views/agenda/index.vue')},
+					{path: 'create-event', component: require('../views/agenda/form.vue')}
+				]
+			},
+			{
+				path: 'formacao',
+				component: ParentLayout,
+				children: [
+					{path: '/', component: require('../views/formacao/index.vue')},
+					{path: 'create', component: require('../views/formacao/form.vue')}
+				]
+			}
 		]
 	}
 	]

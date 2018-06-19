@@ -2,7 +2,7 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-md-12">
-				<data-viewer :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
+				<data-viewer :filter="filter" :source="source" :create="create" :title="title" :thead="thead" :BoxClass="BoxClass">
 					<template slot-scope="props">
 						<tr>
 							<td class="col-md-2">{{props.item.id}}</td>
@@ -77,7 +77,8 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				{label: 'Observações'},
 				{label: 'Created By'},
 				{label: 'Action'}
-				]
+				],
+				filter: ['processo', 'sexo', 'obito']
 			}
 		},
 		mounted(){

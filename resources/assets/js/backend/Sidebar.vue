@@ -95,6 +95,22 @@
 						</router-link>
 					</ul>
 				</li>
+				<router-link to="/backend/atividade-cientifica" tag="li">
+				<a>
+					<i class="fa fa-user"></i>
+					<span>Atividade Cientifica</span>
+				</a>
+				</router-link>
+				<router-link to="/backend/formacao" tag="li">
+				<a>
+					<i class="fa fa-user"></i>
+					<span>Formacao</span>
+				</a>
+				</router-link>
+				<router-link to="/backend/agenda" tag="li">
+				<a><i class="fa fa-calendar"></i>
+				<span>Agenda</span></a>
+				</router-link>
 				<router-link v-if="authUser.is_admin == 1" to="/backend/settings" tag="li">
 					<a><i class="fa  fa-gears"></i>
 						<span>Settings</span></a>

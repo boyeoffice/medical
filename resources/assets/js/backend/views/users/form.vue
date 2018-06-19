@@ -28,7 +28,7 @@
 									<option value="patient">Patient</option>
 									<option value="client">Client</option>
 									<option value="staff">Staff</option>
-									<option value="adminstration">Adminstration</option>
+									<option value="administrator">Administrator</option>
 								</select>
 							</div>
 						</div>

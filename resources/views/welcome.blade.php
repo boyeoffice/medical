@@ -13,7 +13,7 @@
                                     <img src="{{asset('img/logo_login_page.svg')}}" alt="MEDICAL">
                                 </span>
                             </a>
-                            <h4 class="text-upper text-center">Entra</h4>
+                            <h4 class="text-upper text-center">Entrar</h4>
                         </div>
                         <div class="account-content">
                             <form class="from-vertical" action="{{route('login')}}" method="POST" id="login">
@@ -41,7 +41,7 @@
                                     @endif
                                 </div>
                                 <div class="form-gorup row text-center">
-                                    <button class="btn btn-block theme-btn" type="submit">entra</button>
+                                    <button class="btn btn-block theme-btn" type="submit">entrar</button>
                                 </div>
                             </form>
                         </div>
