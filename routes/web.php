@@ -56,4 +56,11 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::get('messages_count', 'MessageController@total_message');
 	Route::post('messages_update', 'MessageController@update');
 	Route::resource('calendar', 'AgendaController');
+	Route::resource('formacao', 'FormacaoController');
+	Route::resource('atividade', 'AtividadeController');
+	Route::get('/users/csv', 'UserController@csv');
+});
+Route::group(['prefix' => 'export', 'middleware' => ['auth']], function(){
+	Route::get('internamento/{id}', 'ExcelController@exportInternamento');
+	Route::get('consult/{id}', 'ExcelController@exportConsult');
 });

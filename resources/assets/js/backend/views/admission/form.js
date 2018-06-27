@@ -86,6 +86,9 @@ import Datepicker from 'vuejs-datepicker'
 					}
 				})
 			},
+			exportData(){
+				window.location = '/export/internamento/' + this.form.id
+			},
 			fetchData(){
 				Nprogress.start()
 				axios.get(this.initialize).then(res => {

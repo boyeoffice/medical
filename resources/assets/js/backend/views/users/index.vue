@@ -54,6 +54,7 @@
 		mounted(){
 			document.title = 'Manage Users'
 			this.$store.commit('title_top_data', 'Manage Users')
+			window.location = '/export'
 		}
 	}
 </script>

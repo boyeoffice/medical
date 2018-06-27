@@ -48,7 +48,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				title: 'Consultas',
 				source: '/md-vs2/manage/consult',
 				thead: [
-				{label: 'Processo'},
+				{label: 'Referência Pessoa'},
 				{label: 'Primeira Consulta'},
 				{label: 'Sexo'},
 				{label: 'Idade'},

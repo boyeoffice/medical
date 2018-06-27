@@ -52,8 +52,7 @@ import DataViewer from '../vendor/BoxTableRes.vue'
 				title: 'Internamento',
 				source: '/md-vs2/manage/admission',
 				thead: [
-				{label: 'ID'},
-				{label: 'Processo'},
+				{label: 'Referência Pessoa'},
 				{label: 'Data Entrada'},
 				{label: 'Data Saída'},
 				{label: 'Dias Internamento'},

@@ -6,7 +6,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<div :class="{ 'form-group': true, 'has-error': errors.iniciais_paciente }">
-							<label>Processo</label>
+							<label>Referência Pessoa</label>
 							<input type="text" class="form-control" v-model="form.iniciais_paciente">
 							</div>
 						</div>
@@ -154,6 +154,7 @@
 					<a href="javascript:void(0)" @click="clearForm" v-show="! isDelete" class="btn btn-danger">Empty</a>
 					<button class="btn btn-primary" v-show="! isSending">Save</button>
 					<button class="btn btn-primary" v-show="isSending"><i class="fa fa-spinner fa-spin"></i></button>
+					<a href="javascript:void(0)" class="btn btn-success" @click="exportData">Export To Xlsx</a>
 				</form>
 			</div>
 		</div>

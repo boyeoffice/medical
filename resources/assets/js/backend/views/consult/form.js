@@ -83,6 +83,9 @@ import VueSuggestions from '../vendor/suggestions'
 					}
 				})
 			},
+			exportData(){
+				window.location = '/export/consult/' + this.form.id
+			},
 			fetchData(){
 				axios.get(this.initialize).then(res => {
 					this.form = res.data

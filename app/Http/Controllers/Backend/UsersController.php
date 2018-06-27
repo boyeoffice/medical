@@ -9,6 +9,7 @@ use App\Http\Requests\CreateUser;
 use App\Http\Requests\UpdateUser;
 use Hash;
 use App\Profile;
+use Excel;
 
 class UsersController extends Controller
 {
@@ -130,5 +131,14 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->delete();
         return response()->json(['success' => true]);
+    }
+    public function csv()
+    {
+        Excel::create('clients', function($excel){
+            $excel->sheet('clients', function($sheet){
+                $sheet->loadView('excel');
+                $sheet->setOrientation('landscape');
+            });
+        })->export('xlsx');
     }
 }
