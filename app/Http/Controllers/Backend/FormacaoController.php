@@ -86,11 +86,11 @@ class FormacaoController extends Controller
      */
     public function update(FormacaoUpdate $request, $id)
     {
-        $exploded = explode(',', $request->anexos);
-        $decoded = base64_decode($exploded[1]);
-        $file = $request->anexos;
-        $ext = $file->getClientOriginalExtension();
-        Storage::putFileAs('/public/' . $file . '.' . $ext);
+        //$exploded = explode(',', $request->anexos);
+       // $decoded = base64_decode($exploded[1]);
+       // $file = $request->anexos;
+       // $ext = $file->getClientOriginalExtension();
+       // Storage::putFileAs('/public/' . $file . '.' . $ext);
 
         $form = Formacao::find($id);
         $form->tipo = $request->tipo;
