@@ -11,7 +11,8 @@ export default{
             method: 'post',
             initialize: '',
             store: '/md-vs2/manage/formacao',
-            isSaving: false
+            isSaving: false,
+            fileData: {}
         }
     },
     mounted(){
@@ -24,10 +25,7 @@ export default{
     },
     methods: {
         save(){
-            let formData = new FormData()
-            formData.append('file', this.form.anexos)
             this.isSaving = true
-            this.form.anexos = formData.filename
             axios[this.method](this.store, this.form).then(res => {
                 this.$router.push('/backend/formacao')
                 toastr.success('Operation was successful')
@@ -40,19 +38,16 @@ export default{
             })
         },
         handleFileUpload(e){
-            this.form.anexos = this.$refs.file.files[0];
-            //let files = e.target.files || e.dataTransfer.files;
-            //if (!files.length) return;
-            //this.createFile(files[0]);
+            this.fileData = this.$refs.file.files[0]
+            setTimeout(() => this.submitFile(), 1000)
         },
-        createFile(file){
-            let reader = new FileReader();
-            let vm = this;
-            reader.onload = (e) => {
-              vm.form.anexos = e.target.result;
-            };
-            reader.readAsDataURL(file);
-          },
+        submitFile(){
+            let formData = new formData()
+            formData.append('file', this.fileData)
+            axios.post('/upload/file', formData, {headers: {'Content-Type': 'multipart/form-data'} }).then(res => {
+
+            })
+        },
         fetchData(){
             const vm = this
             axios.get(this.initialize).then(res => {
