@@ -52,6 +52,7 @@ class AtividadeController extends Controller
         $at->primeiro = $request->primeiro;
         $at->premios = $request->premios;
         $at->observacoes = $request->observacoes;
+        $at->anexos = $request->anexos;
         $at->save();
         return response()->json(['success' => true]);
     }
@@ -101,6 +102,7 @@ class AtividadeController extends Controller
         $at->primeiro = $request->primeiro;
         $at->premios = $request->premios;
         $at->observacoes = $request->observacoes;
+        $at->anexos = $request->anexos;
         $at->update();
         return response()->json(['success' => true]);
 

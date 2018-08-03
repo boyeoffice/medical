@@ -9,7 +9,7 @@
 			</span>
 		</router-link>	
 		<nav class="navbar navbar-static-top">
-			<a href="javascript:void(0)" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+			<a href="javascript:void(0)" class="sidebar-toggle" data-toggle="push-menu" role="button">
 				<span class="sr-only">Toggle Navigation</span>
 			</a>
 			<div class="navbar-custom-menu">

@@ -59,6 +59,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'md-vs2/manage', 'middleware
 	Route::resource('formacao', 'FormacaoController');
 	Route::resource('atividade', 'AtividadeController');
 	Route::get('/users/csv', 'UserController@csv');
+	Route::post('/upload-file', 'UploadController@uploadDocs');
 });
 Route::group(['prefix' => 'export', 'middleware' => ['auth']], function(){
 	Route::get('internamento/{id}', 'ExcelController@exportInternamento');

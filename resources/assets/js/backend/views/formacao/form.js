@@ -12,7 +12,12 @@ export default{
             initialize: '',
             store: '/md-vs2/manage/formacao',
             isSaving: false,
-            fileData: {}
+            attachment: {},
+            file: '',
+            display: '',
+            fileName: '',
+            isLoading: false,
+            fadeIn: false
         }
     },
     mounted(){
@@ -37,15 +42,18 @@ export default{
                 }
             })
         },
-        handleFileUpload(e){
-            this.fileData = this.$refs.file.files[0]
-            setTimeout(() => this.submitFile(), 1000)
-        },
         submitFile(){
-            let formData = new formData()
-            formData.append('file', this.fileData)
-            axios.post('/upload/file', formData, {headers: {'Content-Type': 'multipart/form-data'} }).then(res => {
-
+            this.isLoading = true
+            let formData = new FormData()
+            formData.append('name', this.fileName)
+            formData.append('file', this.attachment)
+            axios.post('/md-vs2/manage/upload-file', formData, {headers: {'Content-Type': 'multipart/form-data'} }).then(res => {
+                this.isLoading = false
+                this.form.anexos = res.data.url
+                this.closeModal()
+            }).catch(err => {
+                this.isLoading = false
+                this.errors = err.response.data
             })
         },
         fetchData(){
@@ -62,6 +70,17 @@ export default{
         },
         clearForm(){
             this.form = {}
+        },
+        showModal(){
+            this.display = 'block'
+            this.fadeIn = true
+        },
+        closeModal(){
+            this.display = ''
+            this.fadeIn = false
+        },
+        addFile(){
+            this.attachment = this.$refs.file.files[0]
         }
     }
 }

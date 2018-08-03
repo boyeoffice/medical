@@ -35,7 +35,7 @@
                                     <td>{{ data.observacoes }}</td>
                                     <td>
                                         <router-link class="btn btn-sm btn-primary" :to="'/backend/atividade-cientifica/' + data.id + '/edit'">
-                                        <i class="fa fa-pencil"></i> Edit
+                                        <i class="fa fa-pencil"></i>
                                         </router-link>
                                     </td>
                                 </tr>

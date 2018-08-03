@@ -4,7 +4,7 @@ export default {
             model: { data: []},
             params: {
                 column: 'id',
-                per_page: 1,
+                per_page: 10,
                 direction: 'desc',
                 page: 1
             },

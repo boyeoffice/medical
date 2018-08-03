@@ -50,6 +50,7 @@ class FormacaoController extends Controller
         $form->nacional = $request->nacional;
         $form->nota = $request->nota;
         $form->observacoes = $request->observacoes;
+        $form->anexos = $request->anexos;
         $form->save();
         return response()->json(['success' => true]);
     }
@@ -101,6 +102,7 @@ class FormacaoController extends Controller
         $form->nacional = $request->nacional;
         $form->nota = $request->nota;
         $form->observacoes = $request->observacoes;
+        $form->anexos = $request->anexos;
         $form->update();
         return response()->json(['success' => true]);
     }

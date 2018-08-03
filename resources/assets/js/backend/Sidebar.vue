@@ -11,7 +11,7 @@
 				<a href="javascript:void(0)" @click.stop="logout"><i class="fa fa-power-off text-warning"> Logout</i></a>
 			   </div>
 			</div>
-			<ul class="sidebar-menu">
+			<ul class="sidebar-menu" data-widget="tree">
 				<li class="header">MAIN NAVIGATION</li>
 				<router-link to="/backend" tag="li">
 					<a><i class="fa fa-dashboard"></i>
@@ -61,32 +61,24 @@
 								Grupos ICD 10
 							</a>
 						</router-link>
-					</ul>
-					<ul class="treeview-menu">
 						<router-link to="/backend/suggestions/icd10_single" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
 								ICD 10
 							</a>
 						</router-link>
-					</ul>
-					<ul class="treeview-menu">
 						<router-link to="/backend/suggestions/origin_destination" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
 								Origem/Destino
 							</a>
 						</router-link>
-					</ul>
-					<ul class="treeview-menu">
 						<router-link to="/backend/suggestions/query_techniques" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>
 								Técnicas
 							</a>
 						</router-link>
-					</ul>
-					<ul class="treeview-menu">
 						<router-link to="/backend/suggestions/specialty" tag="li">
 							<a>
 								<i class="fa fa-circle-o"></i>

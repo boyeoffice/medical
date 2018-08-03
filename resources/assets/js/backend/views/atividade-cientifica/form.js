@@ -9,7 +9,14 @@ export default{
             isSaving: false,
             store: '/md-vs2/manage/atividade',
             initialize: '/md-vs2/manage/atividade',
-            method: 'post'
+            method: 'post',
+            file: {},
+            attachment: '',
+            display: '',
+            fadeIn: false,
+            fileName: '',
+            isLoading: false,
+            errors: {}
         }
     },
     beforeMount(){
@@ -30,6 +37,25 @@ export default{
                 toastr.error('Please fill all the form')
                 this.isSaving = false
             })
+        },
+        submitFile(){
+            this.isLoading = true
+            let formData = new FormData()
+            formData.append('name', this.fileName)
+            formData.append('file', this.attachment)
+            axios.post('/md-vs2/manage/upload-file', formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
+                this.closeModal()
+                this.isLoading = false
+                this.form.fileName = res.data.name
+                this.form.anexos = res.data.url
+                this.errors = {}
+            }).catch(err => {
+                this.isLoading = false
+                this.errors = err.response.data
+            })
+        },
+        addFile(){
+            this.attachment = this.$refs.file.files[0]
         },
         handleFileUpload(e){
             let files = e.target.files || e.dataTransfer.files;
@@ -60,6 +86,14 @@ export default{
                 Vue.set(vm.$data, 'form', res.data)
                 Nprogress.done()
             })
+        },
+        showModal(){
+            this.display = 'block'
+            this.fadeIn = true
+        },
+        closeModal(){
+            this.display = ''
+            this.fadeIn = false
         }
     }
 }

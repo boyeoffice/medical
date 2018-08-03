@@ -112,7 +112,10 @@
                                 <div class="col-sm-4">
                                     <div :class="{'form-group': true}">
                                         <label for="anexos">Anexos</label>
-                                        <input type="file" @change="handleFileUpload" class="form-control">
+                                        <br>
+                                        <a href="javascript:void(0)" @click="showModal">Add Attachment</a>
+                                        <br>
+                                        <a :href="'/' + form.anexos" style="color: #0f0;" target="_blank" v-show="form.anexos">Download</a>
                                     </div>
                                 </div>
                                 <!--/.form-group-->
@@ -127,6 +130,37 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <transition name="modal">
+        <div id="modal-default" :class="{'modal': true, 'fade': true, 'in': fadeIn}" :style="{'display': display}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="closeModal">
+                          <span aria-hidden="true">×</span></button>
+                          <h4 class="modal-title">Default Title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div :class="{'form-group': true, 'has-error': errors.name}">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" v-model="fileName">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Choose file</label>
+                            <input type="file" ref="file" name="file" @change="addFile()" class="form-control">
+                            <strong v-if="errors.file">{{ errors.file[0] }}</strong>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" @click="closeModal">Close</button>
+                        <button class="btn btn-primary" disabled v-if="isLoading"><i class="fa fa-spinner fa-spin"></i> Loading..</button>
+                        <button type="button" class="btn btn-primary" v-else @click="submitFile">Upload file</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </transition>
     </section>
 </template>
 
