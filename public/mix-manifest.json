@@ -1,5 +1,6 @@
 {
-    "/js/backend.js": "/js/backend.js",
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/cms.js": "/js/cms.js?id=6e00f893de3356a823ec",
+    "/js/app.js": "/js/app.js?id=c54c6aa0c4aa5e890a4e",
+    "/css/app.css": "/css/app.css?id=7ed361a9a9f473240cad",
+    "/js/vendor.js": "/js/vendor.js?id=d26c4253171839d20e29"
 }

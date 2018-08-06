@@ -7,6 +7,6 @@
         }
         window.User = {!! Auth::user() !!}
         window.url = "{{url('/')}}"
-	</script></head><body class="skin-blue sidebar-mini"><div id="app"></div><script src="{{asset('js/backend.js')}}"></script> 
+    </script></head><body class="skin-blue sidebar-mini"><div id="app"></div><script src="{{mix('js/vendor.js')}}"></script><script src="{{mix('js/cms.js')}}"></script>
 </body>
 </html>

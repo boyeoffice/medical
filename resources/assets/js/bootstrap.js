@@ -7,7 +7,6 @@ try {
     require('bootstrap-sass');
 } catch (e) {}
 
-require('./adminlte.js')
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
